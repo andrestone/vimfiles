@@ -1,3 +1,6 @@
+### Instructions
+Simply clone into ~/.vim
+
 ### Plugins
 - `./pack/andrestone/start/ctrlp.vim/`
 - `./pack/andrestone/start/dracula/`
