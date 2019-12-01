@@ -1,5 +1,5 @@
 ### Instructions
-Simply clone into ~/.vim
+`git clone --recurse-submodules https://github.com/andrestone/vimfiles.git ~/.vim`
 
 ### Plugins
 - `./pack/andrestone/start/ctrlp.vim/`
