@@ -10,5 +10,5 @@
 - `vim-airline`
 - `vim-fugitive`
 
-### Plus some preferences on `.vimrc`
+### Plus some preferences on `vimrc`
 
