@@ -161,4 +161,7 @@ map <C-l> <C-W>l
 packadd! dracula
 colo dracula
 
+" My mappings
+if has('macunix')
+       nnoremap  <Esc>:q<CR>
 
