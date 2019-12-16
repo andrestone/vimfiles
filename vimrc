@@ -164,4 +164,4 @@ colo dracula
 " My mappings
 if has('macunix')
        nnoremap  <Esc>:q<CR>
-
+endif
