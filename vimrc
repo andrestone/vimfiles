@@ -162,3 +162,14 @@ packadd! dracula
 colo dracula
 
 " My mappings
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap () ()
+inoremap [ []<left>
+inoremap [] []
+inoremap { {}<left>
+inoremap {} {}
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
