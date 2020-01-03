@@ -13,3 +13,7 @@
 [submodule "pack/andrestone/start/nerdtree"]
 	path = pack/andrestone/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/andrestone/start/coc.nvim"]
+	path = pack/andrestone/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+	branch = release
