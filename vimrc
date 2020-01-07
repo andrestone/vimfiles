@@ -144,6 +144,8 @@ endif
 set relativenumber
 set number
 set list
+set ignorecase
+set smartcase
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -303,3 +305,4 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
