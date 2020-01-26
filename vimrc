@@ -141,16 +141,35 @@ if has('langmap') && exists('+langremap')
 endif
 
 " My stuff
-set relativenumber
-set number
-set list
-set ignorecase
-set smartcase
+" Relative number
+set number relativenumber
 
-" vim-airline
+" Show hidden characters 
+" set list
+
+" Ignorecase / smartcase
+set ignorecase smartcase
+
+" Autocompletion (shell)
+set wildmode=longest,list,full
+
+" Split window opens below and to the right (not the opposite)
+set splitbelow splitright
+
+" Airline to use powerline fonts 
 let g:airline_powerline_fonts = 1
 
-" NerdTREE
+" Leader key
+let mapleader = " "
+
+" Spell check
+map <leader>o :setlocal spell!<CR>
+
+" Copy / Paste
+vnoremap <C-c> "*y
+nmap <C-v> "+P
+
+" NerdTREE behaviour when opening files
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -159,9 +178,10 @@ map <C-n> :NERDTreeToggle<CR>
 " Navigation
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
 
 " Color
-" packadd! dracula
 colo intellij 
 
 " coc.nvim
