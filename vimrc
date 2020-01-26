@@ -161,20 +161,8 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Color
-packadd! dracula
-colo dracula
-
-" My mappings
-
-inoremap " ""<left>
-inoremap ( ()<left>
-inoremap () ()
-inoremap [ []<left>
-inoremap [] []
-inoremap { {}<left>
-inoremap {} {}
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" packadd! dracula
+colo intellij 
 
 " coc.nvim
 " if hidden is not set, TextEdit might fail.
@@ -305,4 +293,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" My mappings
+" FZF
+nnoremap <C-P> :FZF<CR>
 
