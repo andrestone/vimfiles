@@ -19,9 +19,6 @@
 [submodule "pack/andrestone/start/asyncomplete.vim"]
 	path = pack/andrestone/start/asyncomplete.vim
 	url = https://github.com/prabirshrestha/asyncomplete.vim.git
-[submodule "pack/andrestone/start/asyncomplete-lsp.vim"]
-	path = pack/andrestone/start/asyncomplete-lsp.vim
-	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
 [submodule "pack/andrestone/start/vim-lsp-javascript"]
 	path = pack/andrestone/start/vim-lsp-javascript
 	url = https://github.com/ryanolsonx/vim-lsp-javascript
