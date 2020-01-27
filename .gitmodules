@@ -13,6 +13,3 @@
 [submodule "pack/andrestone/start/vim-jsx-pretty"]
 	path = pack/andrestone/start/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
-[submodule "pack/andrestone/start/basename"]
-	path = pack/andrestone/start/basename
-	url = https://github.com/prabirshrestha/vim-lsp
