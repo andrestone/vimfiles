@@ -183,21 +183,25 @@ nnoremap <A-]> <C-W>>
 " Color
 colo intellij 
 
-" Code Navigation
-map <silent><F7> :ALEFindReferences<CR>
-inoremap <silent><F7> :ALEFindReferences<CR>
-map <silent> <C-b> :ALEGoToDefinition<CR>
-map <silent> <leader>h :ALEHover<CR>
-map <silent> <leader>l :ALEFix<CR>
+" Code Navigation / Completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+set completeopt-=preview
+" If popup doesnt work
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" set completeopt+=preview
 
-" ALE Settings
-let g:ale_completion_enabled = 1
-let g:ale_completion_tsserver_autoimport = 1
-let g:ale_set_balloons = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_hover_to_preview = 0
-set completeopt=menu,menuone,popup,noselect,noinsert
-set omnifunc=ale#completion#OmniFunc
+map <silent><F7> :LspReferences<CR>
+inoremap <silent><F7> :LspReferences<CR>
+map <silent> <C-b> :LspDefinition<CR>
+map <silent> <leader>h :LspHover<CR>
+map <silent> <leader>l :LspDocumentFormat<CR>
+
+" vim-lsp Setting
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor =1
 
 " Load helps
 packloadall
