@@ -170,21 +170,42 @@ vnoremap <C-c> "*y
 nmap <C-v> "+P
 
 " NerdTREE behaviour when opening files
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
-" Navigation
+" Window Navigation
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-map <C-b> :LspDefinition<CR>
+nnoremap <A-[> <C-W><lt>
+nnoremap <A-]> <C-W>>
 
 " Color
 colo intellij 
 
-" Test
-nmap <leader>r :LspDocumentDiagnostics <CR>
-autocmd FileType qf nnoremap <silent> <buffer> <CR> <CR> :cclose<CR>:lclose<CR>
+" Code Navigation
+map <silent><F7> :ALEFindReferences<CR>
+inoremap <silent><F7> :ALEFindReferences<CR>
+map <silent> <C-b> :ALEGoToDefinition<CR>
+map <silent> <leader>h :ALEHover<CR>
+map <silent> <leader>l :ALEFix<CR>
+
+" ALE Settings
+let g:ale_completion_enabled = 1
+let g:ale_completion_tsserver_autoimport = 1
+let g:ale_set_balloons = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_hover_to_preview = 0
+set completeopt=menu,menuone,popup,noselect,noinsert
+set omnifunc=ale#completion#OmniFunc
+
+" Load helps
+packloadall
+silent! helptags ALL
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
