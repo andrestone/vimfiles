@@ -4,9 +4,6 @@
 [submodule "pack/andrestone/start/vim-airline"]
 	path = pack/andrestone/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "pack/andrestone/start/dracula"]
-	path = pack/andrestone/start/dracula
-	url = https://github.com/dracula/vim.git
 [submodule "pack/andrestone/start/nerdtree"]
 	path = pack/andrestone/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -28,3 +25,6 @@
 [submodule "pack/andrestone/start/vim-lsp-settings"]
 	path = pack/andrestone/start/vim-lsp-settings
 	url = https://github.com/mattn/vim-lsp-settings
+[submodule "pack/andrestone/start/vim-graphql"]
+	path = pack/andrestone/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql
