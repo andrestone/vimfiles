@@ -166,8 +166,8 @@ let mapleader = " "
 map <leader>o :setlocal spell!<CR>
 
 " Copy / Paste
-vnoremap <C-c> "*y
-nmap <C-v> "+P
+vnoremap <leader><C-c> "*y
+nmap <leader><c-v> "+p
 
 " NerdTREE behaviour when opening files
 map <C-n> :NERDTreeToggle<CR>
@@ -177,8 +177,14 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-nnoremap <A-[> <C-W><lt>
-nnoremap <A-]> <C-W>>
+nnoremap ≥ <C-W>>
+nnoremap ≤ <C-W><lt>
+nnoremap – <C-W>-
+nnoremap ≠ <C-w>+
+nmap <S-H> zH
+nmap <S-J> <C-D>
+nmap <S-K> <C-U>
+nmap <S-L> zL
 
 " Color
 colo intellij 
