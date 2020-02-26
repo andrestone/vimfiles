@@ -182,8 +182,6 @@ nnoremap ≤ <C-W><lt>
 nnoremap – <C-W>-
 nnoremap ≠ <C-w>+
 nmap <S-H> zH
-nmap <S-J> <C-D>
-nmap <S-K> <C-U>
 nmap <S-L> zL
 
 " Color
