@@ -163,11 +163,20 @@ let g:airline_powerline_fonts = 1
 let mapleader = " "
 
 " Spell check
-map <leader>o :setlocal spell!<CR>
+nmap <leader>o :setlocal spell!<CR>
 
 " Copy / Paste
-vnoremap <leader><C-c> "*y
-nmap <leader><c-v> "+p
+vnoremap <S-C-c> "*y
+nmap <S-C-v> "*p
+
+" Enclosables
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 " NerdTREE behaviour when opening files
 map <C-n> :NERDTreeToggle<CR>
@@ -183,20 +192,22 @@ nnoremap – <C-W>-
 nnoremap ≠ <C-w>+
 nmap <S-H> zH
 nmap <S-L> zL
+inoremap <S-Tab> <Esc>la
 
 " Color
 colo intellij 
 
 " Code Navigation / Completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" This conflicts with the enclosing exit
+" inoremap <expr> <S-Tab> pumvisible() ? \"\<C-p>" : \"\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 set completeopt-=preview
+
 " If popup doesnt work
 " autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " set completeopt+=preview
-
 map <silent><F7> :LspReferences<CR>
 inoremap <silent><F7> :LspReferences<CR>
 map <silent> <C-b> :LspDefinition<CR>
@@ -211,9 +222,13 @@ let g:lsp_diagnostics_echo_cursor =1
 packloadall
 silent! helptags ALL
 filetype plugin indent on
+
 " show existing tab with 4 spaces width
 set tabstop=4
+
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
+ 
 " On pressing tab, insert 4 spaces
 set expandtab
+
