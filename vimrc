@@ -179,7 +179,7 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
 " NerdTREE behaviour when opening files
-map <C-n> :NERDTreeToggle<CR>
+map <silent><C-n> :NERDTreeToggle<CR>
 
 " Window Navigation
 map <C-h> <C-W>h
@@ -213,10 +213,17 @@ inoremap <silent><F7> :LspReferences<CR>
 map <silent> <C-b> :LspDefinition<CR>
 map <silent> <leader>h :LspHover<CR>
 map <silent> <leader>l :LspDocumentFormat<CR>
+map <silent> <F2> :LspNextDiagnostic<CR>
 
 " vim-lsp Setting
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor =1
+highlight link LspErrorText GruvboxRedSign " requires gruvbox
+
+" fzf
+nnoremap <C-f> /
+nnoremap <C-S-f> :Ag<CR>
+
 
 " Load helps
 packloadall
@@ -224,11 +231,19 @@ silent! helptags ALL
 filetype plugin indent on
 
 " show existing tab with 4 spaces width
-set tabstop=4
+set tabstop=2
 
 " when indenting with '>', use 4 spaces width
-set shiftwidth=4
+set shiftwidth=2
  
-" On pressing tab, insert 4 spaces
-set expandtab
+" no wrap
+set nowrap
+
+" Test gruvbox
+autocmd vimenter * colorscheme gruvbox
+
+let NERDTreeShowHidden=1
+
+" Close quickfix after selecting item
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 

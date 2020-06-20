@@ -28,3 +28,12 @@
 [submodule "pack/andrestone/start/vim-graphql"]
 	path = pack/andrestone/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
+[submodule "pack/andrestone/start/gruvbox"]
+	path = pack/andrestone/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "pack/andrestone/start/fzf.vim"]
+	path = pack/andrestone/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/andrestone/start/fzf"]
+	path = pack/andrestone/start/fzf
+	url = https://github.com/junegunn/fzf
