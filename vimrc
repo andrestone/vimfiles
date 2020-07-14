@@ -170,13 +170,12 @@ vnoremap <S-C-c> "*y
 nmap <S-C-v> "*p
 
 " Enclosables
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O
 
 " NerdTREE behaviour when opening files
 map <silent><C-n> :NERDTreeToggle<CR>
@@ -202,7 +201,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 " This conflicts with the enclosing exit
 " inoremap <expr> <S-Tab> pumvisible() ? \"\<C-p>" : \"\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-imap <c-space> <Plug>(asyncomplete_force_refresh)
+imap <c-@> <Plug>(asyncomplete_force_refresh)
 set completeopt-=preview
 
 " If popup doesnt work
