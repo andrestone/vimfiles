@@ -213,6 +213,7 @@ map <silent> <C-b> :LspDefinition<CR>
 map <silent> <leader>h :LspHover<CR>
 map <silent> <leader>l :LspDocumentFormat<CR>
 map <silent> <F2> :LspNextDiagnostic<CR>
+nmap <silent> <c-@> :LspCodeAction<CR>
 
 " vim-lsp Setting
 let g:lsp_diagnostics_enabled = 1
@@ -229,12 +230,6 @@ packloadall
 silent! helptags ALL
 filetype plugin indent on
 
-" show existing tab with 4 spaces width
-set tabstop=2
-
-" when indenting with '>', use 4 spaces width
-set shiftwidth=2
- 
 " no wrap
 set nowrap
 
@@ -246,3 +241,5 @@ let NERDTreeShowHidden=1
 " Close quickfix after selecting item
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
+" fixing tab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
