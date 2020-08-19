@@ -195,6 +195,7 @@ inoremap <S-Tab> <Esc>la
 
 " Color
 colo darcula 
+set termguicolors
 
 " Code Navigation / Completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

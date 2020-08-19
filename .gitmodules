@@ -40,3 +40,6 @@
 [submodule "pack/andrestone/start/darcula"]
 	path = pack/andrestone/start/darcula
 	url = https://github.com/blueshirts/darcula
+[submodule "pack/andrestone/start/yats.vim"]
+	path = pack/andrestone/start/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim
