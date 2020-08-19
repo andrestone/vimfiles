@@ -233,9 +233,6 @@ filetype plugin indent on
 " no wrap
 set nowrap
 
-" Test gruvbox
-autocmd vimenter * colorscheme gruvbox
-
 let NERDTreeShowHidden=1
 
 " Close quickfix after selecting item
