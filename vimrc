@@ -196,7 +196,25 @@ inoremap <S-Tab> <Esc>la
 " Color
 colo gruvbox 
 set termguicolors
-hi typescriptDocComment guifg=#759960
+hi GruvboxGreen guifg=#759960
+hi GruvboxGreenBold guifg=#759960 gui=bold
+hi Normal guifg=#c3c3c3
+hi GruvboxPurple guifg=#9876AA
+hi! link typeScriptDocTags GruvboxGreenBold
+hi! link typescriptDocComment GruvboxGreen
+hi! link typescriptDocNotation GruvboxGreen
+hi! link typescriptFuncKeyword GruvboxOrange
+hi! link typescriptLabel GruvboxPurple
+hi! link typescriptCall Normal
+hi! link String GruvboxGreen
+hi! link Keyword GruvboxOrange
+hi! link Statement GruvboxOrange
+hi! link Identifier GruvboxOrange
+hi! link Function GruvboxYellow
+hi! link GruvboxAqua GruvboxPurple
+hi! link Label GruvboxOrange
+hi! link Conditional GruvboxOrange
+hi! link Reoeat GruvboxOrange
 
 " Code Navigation / Completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
