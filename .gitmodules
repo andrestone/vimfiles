@@ -37,3 +37,6 @@
 [submodule "pack/andrestone/start/auto-pairs"]
 	path = pack/andrestone/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "pack/andrestone/start/vim-css-color"]
+	path = pack/andrestone/start/vim-css-color
+	url = https://github.com/ap/vim-css-color
