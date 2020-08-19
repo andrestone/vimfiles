@@ -220,6 +220,9 @@ let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor =1
 highlight link LspErrorText GruvboxRedSign " requires gruvbox
 
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
 " fzf
 nnoremap <C-f> /
 nnoremap <C-S-f> :Ag<CR>
