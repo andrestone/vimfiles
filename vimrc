@@ -194,7 +194,7 @@ nmap <S-L> zL
 inoremap <S-Tab> <Esc>la
 
 " Color
-colo intellij 
+colo darcula 
 
 " Code Navigation / Completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

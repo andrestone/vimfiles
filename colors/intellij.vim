@@ -1,203 +1,174 @@
-"
-" Darcula colorscheme for VIM.
-"
-
-highlight clear
-
-if exists("syntax_on")
-  syntax reset
-endif
-
-let g:colors_name = "intellij"
-
-hi Cursor ctermfg=188 ctermbg=250 cterm=NONE guifg=#2b2b2b guibg=#a9b7c6 gui=NONE
-hi Visual ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#214283 gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#323232 gui=NONE
-hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313335 gui=NONE
-hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#313335 gui=NONE
-hi CursorLineNr ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#214283 gui=NONE
-hi VertSplit ctermfg=60 ctermbg=236 cterm=NONE guifg=#555555 guibg=#323232 gui=NONE
-hi MatchParen ctermfg=173 ctermbg=NONE cterm=underline guifg=#c57825 guibg=NONE gui=underline
-hi StatusLine ctermfg=67 ctermbg=236 cterm=bold guifg=#a9b7c6 guibg=#323232 gui=bold
-hi StatusLineNC ctermfg=188 ctermbg=236 cterm=NONE guifg=#a9b7c6 guibg=#323232 gui=NONE
-hi Search term=reverse ctermfg=188 ctermbg=24 guifg=#a9b7c6 guibg=#214283 gui=none
-hi IncSearch term=reverse ctermfg=188 ctermbg=24 guifg=#323232 guibg=#b1c73d gui=none
-hi Directory ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=italic
-hi Folded ctermfg=244 ctermbg=235 cterm=NONE guifg=#8e9292 guibg=#2b2b2b gui=NONE
-
-hi Normal ctermfg=252 ctermbg=235 cterm=NONE guifg=#f1f1f1 guibg=NONE gui=NONE
-hi Boolean ctermfg=103 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi Character ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=italic
-hi Comment ctermfg=244 ctermbg=NONE cterm=NONE guifg=#8e9292 guibg=NONE gui=none
-hi Conditional ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi Constant ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=bold
-hi Define ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi DiffAdd ctermfg=188 ctermbg=64 cterm=bold guifg=#a9b7c6 guibg=#365546 gui=bold
-hi DiffDelete ctermfg=88 ctermbg=NONE cterm=NONE guifg=#8c0909 guibg=NONE gui=NONE
-hi DiffChange ctermfg=188 ctermbg=23 cterm=NONE guifg=#a9b7c6 guibg=#263b59 gui=NONE
-hi DiffText ctermfg=188 ctermbg=24 cterm=bold guifg=#a9b7c6 guibg=#204a87 gui=bold
-hi ErrorMsg ctermfg=15 ctermbg=88 cterm=NONE guifg=#ffffff guibg=#990000 gui=NONE
-hi WarningMsg ctermfg=15 ctermbg=88 cterm=NONE guifg=#ffffff guibg=#990000 gui=NONE
-hi Float ctermfg=67 ctermbg=NONE cterm=NONE guifg=#7ca8c6 guibg=NONE gui=NONE
-hi Function ctermfg=221 ctermbg=NONE cterm=bold guifg=#c57825 guibg=NONE gui=bold
-hi Identifier ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi Keyword ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi Label ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi NonText ctermfg=188 ctermbg=235 cterm=NONE guifg=#888888 guibg=#2b2b2b gui=NONE
-hi Number ctermfg=67 ctermbg=NONE cterm=NONE guifg=#7ca8c6 guibg=NONE gui=NONE
-hi Operator ctermfg=250 ctermbg=NONE cterm=NONE guifg=#a9b7c6 guibg=NONE gui=NONE
-hi PreProc ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi Special ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi SpecialKey ctermfg=250 ctermbg=236 cterm=NONE guifg=#bfbfbf guibg=#313335 gui=NONE
-hi Statement ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi StorageClass ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-
-hi String ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-hi Tag ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi Title ctermfg=159 ctermbg=NONE cterm=bold guifg=#a9b7c6 guibg=NONE gui=bold
-hi Todo ctermfg=148 ctermbg=NONE cterm=NONE guifg=#b1c73d guibg=NONE gui=bold,italic
-hi Type ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
-hi htmlTag ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi htmlEndTag ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi htmlTagName ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi htmlString ctermfg=222 ctermbg=NONE cterm=NONE guifg=#8dc35b guibg=NONE gui=NONE
-hi htmlArg ctermfg=222 ctermbg=NONE cterm=NONE guifg=#a9b7c6 guibg=NONE gui=NONE
-hi htmlSpecialChar ctermfg=103 ctermbg=NONE cterm=NONE guifg=#67609c guibg=NONE gui=italic
-hi yamlKey ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi yamlAnchor ctermfg=67 ctermbg=NONE cterm=NONE guifg=#7ca8c6 guibg=NONE gui=NONE
-hi yamlAlias ctermfg=67 ctermbg=NONE cterm=NONE guifg=#7ca8c6 guibg=NONE gui=NONE
-hi yamlDocumentHeader ctermfg=NONE ctermbg=235 cterm=NONE guifg=NONE guibg=#292929 gui=NONE
-hi cssURL ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi cssFunctionName ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-hi cssColor ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=italic
-hi cssPseudoClassId ctermfg=188 ctermbg=NONE cterm=NONE guifg=#d0d0ff guibg=NONE gui=NONE
-hi cssClassName ctermfg=188 ctermbg=NONE cterm=NONE guifg=#d0d0ff guibg=NONE gui=NONE
-hi cssValueLength ctermfg=67 ctermbg=NONE cterm=NONE guifg=#7ca8c6 guibg=NONE gui=NONE
-hi cssCommonAttr ctermfg=28 ctermbg=NONE cterm=bold guifg=#06960e guibg=NONE gui=bold
-hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-
-" Adjust the gutter.
-let g:gitgutter_override_sign_column_highlight = 0 " Tell git gutter to leave the background alone.
-hi SignColumn ctermfg=60 ctermbg=236 cterm=NONE guifg=#888888 guibg=#323232 gui=NONE
-hi LineNr ctermfg=60 ctermbg=236 cterm=NONE guifg=#888888 guibg=#323232 gui=NONE
-
-" Extra Ruby highlighting.
-hi rubyClass ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi rubyFunction ctermfg=222 ctermbg=NONE cterm=bold guifg=#c57825 guibg=NONE gui=bold
-hi rubyInterpolationDelimiter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubySymbol ctermfg=103 ctermbg=NONE cterm=NONE guifg=#67609c guibg=NONE gui=italic
-hi rubyConstant ctermfg=68 ctermbg=NONE cterm=bold guifg=#9676ac guibg=NONE gui=bold
-hi rubyStringDelimiter ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-hi rubyBlockParameter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubyInstanceVariable ctermfg=66 ctermbg=NONE cterm=NONE guifg=#318495 guibg=NONE gui=NONE
-hi rubyInclude ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi rubyGlobalVariable ctermfg=66 ctermbg=NONE cterm=NONE guifg=#318495 guibg=NONE gui=NONE
-hi rubyRegexp ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-hi rubyRegexpDelimiter ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-hi rubyEscape ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi rubyControl ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi rubyClassVariable ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi rubyOperator ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi rubyException ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi rubyPseudoVariable ctermfg=66 ctermbg=NONE cterm=NONE guifg=#318495 guibg=NONE gui=NONE
-hi rubyRailsUserClass ctermfg=256 ctermbg=NONE cterm=bold guifg=#bbbbbb guibg=NONE gui=bold
-hi rubyRailsARAssociationMethod ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-hi rubyRailsARMethod ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-hi rubyRailsRenderMethod ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-hi rubyRailsMethod ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-hi erubyDelimiter ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi erubyComment ctermfg=244 ctermbg=NONE cterm=NONE guifg=#8e9292 guibg=NONE gui=italic
-hi erubyRailsMethod ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-
-" Extra js highlighting.
-hi jsFuncName ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi jsFunction ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-"hi jsNoise ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi jsFuncCall ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi jsComment ctermfg=244 ctermbg=NONE cterm=NONE guifg=#8e9292 guibg=NONE gui=none
-hi jsBlockComment ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-hi jsDocTags ctermfg=65 ctermbg=NONE cterm=bold guifg=#5e8759 guibg=NONE gui=bold
-hi jsDocType ctermfg=65 ctermbg=NONE cterm=bold guifg=#5e8759 guibg=NONE gui=bold
-hi jsFunctionKey ctermfg=222 ctermbg=NONE cterm=bold guifg=#c57825 guibg=NONE gui=bold
-hi jsCommonJs ctermfg=222 ctermbg=NONE cterm=bold guifg=#c57825 guibg=NONE gui=bold
-"hi jsParen ctermfg=222 ctermbg=NONE cterm=bold guifg=#c57825 guibg=NONE gui=bold
-hi jsParen ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-"hi jsFuncBlock ctermfg=103 ctermbg=NONE cterm=NONE guifg=#67609c guibg=NONE gui=italic
-hi javaScriptFunction ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi javaScriptRailsFunction ctermfg=59 ctermbg=NONE cterm=bold guifg=#3c4c72 guibg=NONE gui=bold
-hi javaScriptBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi jsObjectKey ctermfg=103 ctermbg=NONE cterm=bold guifg=#9676ac guibg=NONE gui=bold
-hi jsGlobalObjects ctermfg=103 ctermbg=NONE cterm=bold guifg=#9676ac guibg=NONE gui=bold
-
-
-" Extra ts highligting
-hi typescriptDocComment ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-
-" Extra Markdown highlighing.
-hi markdownHeadingDelimiter ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-hi markdownH1 ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi markdownH2 ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi markdownH3 ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi markdownH4 ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi markdownH5 ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi markdownH6 ctermfg=222 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-
-" Extra Jade highlighing.
-hi jadeId ctermfg=103 ctermbg=NONE cterm=NONE guifg=#67609c guibg=NONE gui=italic
-hi jadeClass ctermfg=103 ctermbg=NONE cterm=NONE guifg=#9676ac guibg=NONE gui=NONE
-hi jadePipedText ctermfg=65 ctermbg=NONE cterm=NONE guifg=#5e8759 guibg=NONE gui=NONE
-
-" Extra JSON highlighting.
-hi jsonBraces ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-
-" Extra CoffeeScript highlighting.
-hi coffeeObject ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-hi coffeeObjAssign ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi coffeeSpecialVar ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-
-" Extra Java highlighting.
-hi javaAnnotation ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi javaTypeDef ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-"hi javaOperator ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-
-" Extra VIM highlighting.
-hi vimOption ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi vimUserFunc ctermfg=222 ctermbg=NONE cterm=NONE guifg=#d9c767 guibg=NONE gui=NONE
-hi vimCommand ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=NONE
-hi vimParenSep ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-hi vimVar ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-hi vimFuncName ctermfg=103 ctermbg=NONE cterm=NONE guifg=#a9b7c6 guibg=NONE gui=NONE
-hi vimIsCommand ctermfg=188 ctermbg=235 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-
-" Extra CtrlP highlighting.
-hi CtrlPMatch term=reverse ctermfg=188 ctermbg=24 guifg=#a9b7c6 guibg=#214283 gui=none
-
-" Python specific highlighting.
-hi pythonOperator ctermfg=172 ctermbg=NONE cterm=NONE guifg=#c57825 guibg=NONE gui=bold
-
-" Popup Highlighing.
-hi Pmenu ctermfg=NONE ctermbg=238 cterm=NONE guifg=NONE guibg=#323232 gui=NONE
-hi PmenuSel ctermfg=188 ctermbg=24 term=reverse guifg=NONE guibg=#214283 gui=NONE
-hi PmenuSbar  ctermfg=NONE ctermbg=24 guifg=NONE guibg=#8e9292
-hi PmenuThumb ctermfg=59 ctermbg=NONE guifg=NONE guibg=NONE
-
-" Spelling highlighting.
-hi clear SpellBad
-hi clear SpellCap
-hi clear SpellRare
-hi clear SpellLocal
-hi SpellBad ctermfg=150 ctermbg=NONE cterm=undercurl term=undercurl guifg=#aeae80 guibg=NONE gui=undercurl
-hi SpellCap ctermfg=150 ctermbg=NONE cterm=undercurl guifg=#aeae80 guibg=NONE gui=undercurl
-hi SpellRare ctermfg=150 ctermbg=NONE cterm=undercurl guifg=#aeae80 guibg=NONE gui=undercurl
-hi SpellLocal ctermfg=150 ctermbg=NONE cterm=undercurl guifg=#aeae80 guibg=NONE gui=undercurl
-
-" NonText are 'end of the window' symbols, showbreak and various others. See :he highlight-groups
-hi NonText ctermfg=244 ctermbg=NONE cterm=NONE guifg=#8e9292 guibg=NONE gui=none
-
-" Highlighting for built-in tabs.
-hi TabLineFill ctermfg=146 ctermbg=16 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-hi TabLine ctermfg=146 ctermbg=16 cterm=NONE guifg=#a9b7c6 guibg=#2b2b2b gui=NONE
-hi TabLineSel ctermfg=146 ctermbg=59 cterm=NONE guifg=#a9b7c6 guibg=#515658 gui=NONE
+" Darcula color scheme
+" Josh Glendenning
 
 set background=dark
+hi clear
+
+if exists("syntax_on")
+	syntax reset
+endif
+
+let colors_name = "intellij"
+
+" Colors
+" -----------------------------------------------------------------------------
+
+" Black/none
+let s:NONE           = ["NONE", "NONE"]
+let s:BLACK          = [0,   "#000000"]
+
+" Grey
+let s:DARKER_GREY    = [233, "#121212"]
+let s:DARK_GREY      = [235, "#262626"]
+let s:GREY           = [238, "#444444"]
+let s:LIGHT_GREY     = [240, "#585858"]
+let s:LIGHTER_GREY   = [242, "#666666"]
+
+" White
+let s:WHITE          = [7,   "#c0c0c0"]
+let s:DARK_WHITE     = [247, "#9e9e9e"]
+
+" Colors
+let s:BLUE           = [67,  "#5f87af"]
+let s:BRIGHT_PURPLE  = [57,  "#5f00ff"]
+let s:CYAN           = [44,  "#00d7d7"]
+let s:DARK_ORANGE    = [130, "#af5f00"]
+let s:DARK_SEA_GREEN = [65,  "#5f875f"]
+let s:GREEN          = [34,  "#00af00"]
+let s:LIGHT_CYAN     = [73,  "#5fafaf"]
+let s:MAGENTA        = [198, "#ff0087"]
+let s:ORANGE         = [172, "#d78700"]
+let s:PURPLE         = [103, "#8787af"]
+let s:RED            = [160, "#d70000"]
+let s:RED_ORANGE     = [131, "#af5f5f"]
+let s:YELLOW         = [226, "#808000"]
+let s:YELLOW_ORANGE  = [178, "#d7af00"]
+
+" Utility
+" -----------------------------------------------------------------------------
+"
+function! s:highlight(group, fg, bg, attr)
+	exec "hi " . a:group . " ctermfg=" . a:fg[0]
+	exec "hi " . a:group . " ctermbg=" . a:bg[0]
+	exec "hi " . a:group . " cterm=" . a:attr
+	exec "hi " . a:group . " guifg=" . a:fg[1]
+	exec "hi " . a:group . " guibg=" . a:bg[1]
+	exec "hi " . a:group . " gui=" . a:attr
+	exec "hi " . a:group . " guisp=NONE"
+endfunction
+
+" Basic Highlighting
+" -----------------------------------------------------------------------------
+
+" General
+call s:highlight("Normal",        s:WHITE,           s:DARKER_GREY,   "NONE")
+call s:highlight("NonText",       s:DARKER_GREY,     s:NONE,          "NONE")
+call s:highlight("Conceal",       s:DARK_GREY,       s:NONE,          "NONE")
+call s:highlight("Ignore",        s:NONE,            s:NONE,          "NONE")
+
+call s:highlight("SpecialKey",    s:BRIGHT_PURPLE,   s:NONE,          "NONE")
+
+" Cursor
+call s:highlight("Cursor",        s:NONE,            s:GREY,          "REVERSE")
+call s:highlight("CursorLine",    s:NONE,            s:GREY,          "NONE")
+call s:highlight("ColorColumn",   s:NONE,            s:GREY,          "NONE")
+call s:highlight("CursorColumn",  s:NONE,            s:GREY,          "NONE")
+
+" Windows and tabs
+call s:highlight("LineNr",        s:LIGHT_GREY,      s:DARK_GREY,     "NONE")
+call s:highlight("ModeMsg",       s:LIGHT_CYAN,      s:NONE,          "NONE")
+call s:highlight("MoreMsg",       s:LIGHT_CYAN,      s:NONE,          "NONE")
+call s:highlight("StatusLine",    s:WHITE,           s:DARK_GREY,     "NONE")
+call s:highlight("StatusLineNC",  s:WHITE,           s:DARK_GREY,     "BOLD")
+call s:highlight("TabLine",       s:WHITE,           s:DARK_GREY,     "NONE")
+call s:highlight("TabLineFill",   s:NONE,            s:NONE,          "NONE")
+call s:highlight("TabLineSel",    s:WHITE,           s:GREY,          "BOLD")
+call s:highlight("Title",         s:NONE,            s:NONE,          "NONE")
+call s:highlight("VertSplit",     s:NONE,            s:LIGHT_GREY,    "NONE")
+
+" Selections and blocks
+call s:highlight("Visual",        s:NONE,            s:GREY,          "NONE")
+call s:highlight("VisualNOS",     s:NONE,            s:GREY,          "NONE")
+call s:highlight("MatchParen",    s:NONE,            s:GREY,          "NONE")
+call s:highlight("Search",        s:WHITE,           s:BRIGHT_PURPLE, "NONE")
+call s:highlight("Folded",        s:LIGHTER_GREY,    s:DARK_GREY,     "NONE")
+
+" Menus
+call s:highlight("WildMenu",      s:DARKER_GREY,     s:WHITE,         "NONE")
+
+" Errors and warnings
+call s:highlight("Error",         s:WHITE,           s:RED,           "NONE")
+call s:highlight("ErrorMsg",      s:WHITE,           s:RED,           "NONE")
+call s:highlight("WarningMsg",    s:BLACK,           s:YELLOW,        "NONE")
+call s:highlight("SpellBad",      s:NONE,            s:NONE,          "UNDERLINE")
+call s:highlight("SpellCap",      s:NONE,            s:NONE,          "UNDERLINE")
+call s:highlight("SpellRare",     s:NONE,            s:NONE,          "UNDERLINE")
+call s:highlight("SpellLocal",    s:NONE,            s:NONE,          "UNDERLINE")
+call s:highlight("Todo",          s:WHITE,           s:MAGENTA,       "NONE")
+call s:highlight("Question",      s:BLUE,            s:NONE,          "NONE")
+
+" Popup menu
+call s:highlight("Pmenu",         s:DARKER_GREY,     s:LIGHTER_GREY,  "NONE")
+call s:highlight("PmenuSel",      s:DARKER_GREY,     s:WHITE,         "NONE")
+call s:highlight("PmenuSbar",     s:DARKER_GREY,     s:WHITE,         "NONE")
+
+" Syntax
+call s:highlight("Comment",       s:LIGHTER_GREY,    s:NONE,          "NONE")
+call s:highlight("Constant",      s:CYAN,            s:NONE,          "NONE")
+call s:highlight("Delimiter",     s:WHITE,           s:NONE,          "NONE")
+call s:highlight("Directory",     s:BLUE,            s:NONE,          "NONE")
+call s:highlight("Identifier",    s:PURPLE,          s:NONE,          "NONE")
+call s:highlight("Operator",      s:WHITE,           s:NONE,          "NONE")
+call s:highlight("PreCondit",     s:YELLOW_ORANGE,   s:NONE,          "NONE")
+call s:highlight("PreProc",       s:ORANGE,          s:NONE,          "NONE")
+call s:highlight("Special",       s:RED_ORANGE,      s:NONE,          "NONE")
+call s:highlight("Statement",     s:BRIGHT_PURPLE,          s:NONE,          "NONE")
+call s:highlight("String",        s:DARK_SEA_GREEN,  s:NONE,          "NONE")
+call s:highlight("Structure",     s:BLUE,            s:NONE,          "NONE")
+call s:highlight("Type",          s:DARK_ORANGE,     s:NONE,          "NONE")
+
+" Special Highlighting
+" -----------------------------------------------------------------------------
+
+" NERDTree
+call s:highlight("NERDTreeExecFile",    s:RED,             s:DARKER_GREY,     "NONE")
+call s:highlight("NERDTreeClosable",    s:WHITE,           s:DARKER_GREY,     "NONE")
+call s:highlight("NERDTreeOpenable",    s:WHITE,           s:DARKER_GREY,     "NONE")
+call s:highlight("NERDTreeLinkFile",    s:PURPLE,          s:DARKER_GREY,     "NONE")
+call s:highlight("NERDTreeLinkTarget",  s:CYAN,            s:NONE,            "NONE")
+
+" OverLength
+call s:highlight("OverLength", s:NONE, s:GREY, "NONE")
+
+" TrailingWhitespace
+call s:highlight("TrailingWhitespace", s:NONE, s:BRIGHT_PURPLE, "NONE")
+
+" Neovim listchars
+call s:highlight("Whitespace", s:BRIGHT_PURPLE, s:NONE, "NONE")
+
+" git commit
+call s:highlight("gitcommitSummary",  s:WHITE,   s:DARKER_GREY,  "NONE")
+
+" git diff
+call s:highlight("diffAdded",         s:GREEN,   s:NONE,         "NONE")
+call s:highlight("diffRemoved",       s:RED,     s:NONE,         "NONE")
+
+" diff
+call s:highlight("DiffAdd",           s:GREEN,   s:NONE,         "NONE")
+call s:highlight("DiffDelete",        s:RED,     s:NONE,         "NONE")
+call s:highlight("DiffChange",        s:ORANGE,  s:NONE,         "NONE")
+call s:highlight("DiffText",          s:WHITE,   s:DARKER_GREY,  "NONE")
+
+" HTML
+hi link htmltagname Keyword
+hi link htmlstring String
+hi link htmlH1 Statement
+hi link htmlH2 Statement
+hi link htmlH3 Statement
+hi link htmlH4 Statement
+hi link htmlH5 Statement
+hi link htmlH6 Statement
+
+" Markdown
+call s:highlight("mkdURL",            s:CYAN,    s:NONE,         "NONE")
+call s:highlight("mkdLink",           s:NONE,    s:NONE,         "BOLD")
