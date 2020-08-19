@@ -194,8 +194,9 @@ nmap <S-L> zL
 inoremap <S-Tab> <Esc>la
 
 " Color
-colo darcula 
+colo gruvbox 
 set termguicolors
+hi typescriptDocComment guifg=#759960
 
 " Code Navigation / Completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
