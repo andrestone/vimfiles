@@ -43,6 +43,3 @@
 [submodule "pack/andrestone/start/gruvbox"]
 	path = pack/andrestone/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
-[submodule "pack/andrestone/start/cheat.sh-vim"]
-	path = pack/andrestone/start/cheat.sh-vim
-	url = https://github.com/dbeniamine/cheat.sh-vim
