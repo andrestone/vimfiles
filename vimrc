@@ -200,21 +200,36 @@ hi GruvboxGreen guifg=#759960
 hi GruvboxGreenBold guifg=#759960 gui=bold
 hi Normal guifg=#c3c3c3
 hi GruvboxPurple guifg=#9876AA
+hi! link Boolean GruvboxOrange
+hi! link typescriptClassKeyword GruvboxOrange
+hi! link typescriptInterfaceKeyword GruvboxOrange
+hi! link typescriptClassExtends GruvboxOrange
+hi! link typescriptArrowFunc GruvboxOrange
+hi! link typescriptInterfaceExtends GruvboxOrange
+hi! link typescriptAccessibilityModifier GruvboxOrange
+hi! link typescriptReadonlyModifier GruvboxOrange
+hi! link typescriptPredefinedType GruvboxOrange
 hi! link typeScriptDocTags GruvboxGreenBold
+hi! link typescriptMember GruvboxYellow 
+hi! link typescriptTestGlobal Label
+hi! link typescriptConstructor GruvboxYellow
 hi! link typescriptDocComment GruvboxGreen
 hi! link typescriptDocNotation GruvboxGreen
 hi! link typescriptFuncKeyword GruvboxOrange
-hi! link typescriptLabel GruvboxPurple
-hi! link typescriptCall Normal
+hi! link typescriptObjectLabel GruvboxPurple
+hi! link typescriptLabel GruvboxYellow
+hi! link typescriptCall Normal 
+hi! link typescriptForOperator GruvboxOrange
+hi! link typescriptTypeReference Normal
+hi! link Structure Normal
 hi! link String GruvboxGreen
-hi! link Keyword GruvboxOrange
+hi! link Keyword GruvboxPurple
 hi! link Statement GruvboxOrange
 hi! link Identifier GruvboxOrange
 hi! link Function GruvboxYellow
-hi! link GruvboxAqua GruvboxPurple
 hi! link Label GruvboxOrange
 hi! link Conditional GruvboxOrange
-hi! link Reoeat GruvboxOrange
+hi! link Repeat GruvboxOrange
 
 " Code Navigation / Completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
