@@ -200,6 +200,7 @@ hi GruvboxGreen guifg=#759960
 hi GruvboxGreenBold guifg=#759960 gui=bold
 hi Normal guifg=#c3c3c3
 hi GruvboxPurple guifg=#9876AA
+hi! link Number Normal
 hi! link Boolean GruvboxOrange
 hi! link typescriptClassKeyword GruvboxOrange
 hi! link typescriptInterfaceKeyword GruvboxOrange
@@ -210,7 +211,6 @@ hi! link typescriptAccessibilityModifier GruvboxOrange
 hi! link typescriptReadonlyModifier GruvboxOrange
 hi! link typescriptPredefinedType GruvboxOrange
 hi! link typeScriptDocTags GruvboxGreenBold
-hi! link typescriptMember GruvboxYellow 
 hi! link typescriptTestGlobal Label
 hi! link typescriptConstructor GruvboxYellow
 hi! link typescriptDocComment GruvboxGreen
@@ -221,9 +221,10 @@ hi! link typescriptLabel GruvboxYellow
 hi! link typescriptCall Normal 
 hi! link typescriptForOperator GruvboxOrange
 hi! link typescriptTypeReference Normal
+hi! link typescriptMember GruvboxPurple
+hi! link Keyword GruvboxYellow
 hi! link Structure Normal
 hi! link String GruvboxGreen
-hi! link Keyword GruvboxPurple
 hi! link Statement GruvboxOrange
 hi! link Identifier GruvboxOrange
 hi! link Function GruvboxYellow
