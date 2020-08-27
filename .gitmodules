@@ -25,3 +25,9 @@
 [submodule "pack/andrestone/start/vim-jsx-pretty"]
 	path = pack/andrestone/start/vim-jsx-pretty
 	url = https://github.com/maxmellon/vim-jsx-pretty
+[submodule "pack/andrestone/start/coc.nvim"]
+	path = pack/andrestone/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "pack/andrestone/start/auto-pairs"]
+	path = pack/andrestone/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs

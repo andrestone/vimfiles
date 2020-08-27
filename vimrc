@@ -242,32 +242,38 @@ hi! link Label GruvboxOrange
 hi! link Conditional GruvboxOrange
 hi! link Repeat GruvboxOrange
 
-" Code Navigation / Completion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" This conflicts with the enclosing exit
-" inoremap <expr> <S-Tab> pumvisible() ? \"\<C-p>" : \"\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-imap <c-@> <Plug>(asyncomplete_force_refresh)
-set completeopt-=preview
 
-" If popup doesnt work
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-" set completeopt+=preview
-map <silent><F7> :LspReferences<CR>
-inoremap <silent><F7> :LspReferences<CR>
-map <silent> <C-b> :LspDefinition<CR>
-map <silent> <leader>h :LspHover<CR>
-map <silent> <leader>l :LspDocumentFormat<CR>
-map <silent> <F2> :LspNextDiagnostic<CR>
-nmap <silent> <c-@> :LspCodeAction<CR>
+" Coc stuff
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+map <silent><F7> <Plug>(coc-references)
+map <silent><F2> <Plug>(coc-diagnostic-next)
+map <silent> <C-S-b> <Plug>(coc-type-definition)
+map <silent> <C-S-i> <Plug>(coc-implementation)
+inoremap <silent><F7> <Plug>(coc-references)
+map <silent> <C-b> <Plug>(coc-definition) 
+nnoremap <silent><leader>h :call <SID>show_documentation()<CR>
+nnoremap <silent><leader>l :call CocAction('format')<CR>
 
-" vim-lsp Setting
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor =1
-highlight link LspErrorText GruvboxRedSign " requires gruvbox
-
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " fzf
 nnoremap <C-f> /
@@ -289,3 +295,5 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
 " fixing tab
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+
+set hidden
