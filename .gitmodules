@@ -25,9 +25,6 @@
 [submodule "pack/andrestone/start/vim-css-color"]
 	path = pack/andrestone/start/vim-css-color
 	url = https://github.com/ap/vim-css-color
-[submodule "pack/andrestone/start/darcula"]
-	path = pack/andrestone/start/darcula
-	url = https://github.com/blueshirts/darcula
 [submodule "pack/andrestone/start/gruvbox"]
 	path = pack/andrestone/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
