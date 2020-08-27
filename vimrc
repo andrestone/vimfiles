@@ -197,9 +197,14 @@ inoremap <S-Tab> <Esc>la
 colo gruvbox 
 set termguicolors
 hi Normal guifg=#c3c3c3 guibg=#101010
+hi GruvboxPurple guifg=#9876AA
+hi! link GruvboxRed GruvboxOrange
+hi! link GruvboxGreen GruvboxOrange
+hi! link GruvboxAqua GruvboxOrange
+hi GruvboxPurple guifg=#9876AA
 hi GruvboxGreen guifg=#759960
 hi GruvboxGreenBold guifg=#759960 gui=bold
-hi GruvboxPurple guifg=#9876AA
+hi! link GruvboxRed GruvboxOrange
 hi! link pythonDecorator GruvboxOrange
 hi! link pythonOperator GruvboxOrange
 hi! link pythonException GruvboxOrange
