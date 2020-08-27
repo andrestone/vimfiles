@@ -196,10 +196,15 @@ inoremap <S-Tab> <Esc>la
 " Color
 colo gruvbox 
 set termguicolors
+hi Normal guifg=#c3c3c3 guibg=#101010
 hi GruvboxGreen guifg=#759960
 hi GruvboxGreenBold guifg=#759960 gui=bold
-hi Normal guifg=#c3c3c3
 hi GruvboxPurple guifg=#9876AA
+hi! link pythonDecorator GruvboxOrange
+hi! link pythonOperator GruvboxOrange
+hi! link pythonException GruvboxOrange
+hi! link pythonRepeat GruvboxOrange
+hi! link pythonConditional Conditional
 hi! link Number Normal
 hi! link Boolean GruvboxOrange
 hi! link typescriptClassKeyword GruvboxOrange
