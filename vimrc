@@ -169,14 +169,6 @@ nmap <leader>o :setlocal spell!<CR>
 vnoremap <S-C-c> "*y
 nmap <S-C-v> "*p
 
-" Enclosables
-" inoremap ' ''<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap {<CR> {<CR>}<ESC>O
-" inoremap {;<CR> {<CR>};<ESC>O
-
 " NerdTREE behaviour when opening files
 map <silent><C-n> :NERDTreeToggle<CR>
 
@@ -196,51 +188,53 @@ inoremap <S-Tab> <Esc>la
 " Color
 colo gruvbox 
 set termguicolors
-hi Normal guifg=#c3c3c3 guibg=#101010
-hi GruvboxPurple guifg=#9876AA
-hi! link GruvboxRed GruvboxOrange
-hi! link GruvboxGreen GruvboxOrange
-hi! link GruvboxAqua GruvboxOrange
-hi GruvboxPurple guifg=#9876AA
-hi GruvboxGreen guifg=#759960
-hi GruvboxGreenBold guifg=#759960 gui=bold
-hi! link GruvboxRed GruvboxOrange
-hi! link pythonDecorator GruvboxOrange
-hi! link pythonOperator GruvboxOrange
-hi! link pythonException GruvboxOrange
-hi! link pythonRepeat GruvboxOrange
-hi! link pythonConditional Conditional
-hi! link Number Normal
-hi! link Boolean GruvboxOrange
-hi! link typescriptClassKeyword GruvboxOrange
-hi! link typescriptInterfaceKeyword GruvboxOrange
-hi! link typescriptClassExtends GruvboxOrange
-hi! link typescriptArrowFunc GruvboxOrange
-hi! link typescriptInterfaceExtends GruvboxOrange
-hi! link typescriptAccessibilityModifier GruvboxOrange
-hi! link typescriptReadonlyModifier GruvboxOrange
-hi! link typescriptPredefinedType GruvboxOrange
-hi! link typeScriptDocTags GruvboxGreenBold
-hi! link typescriptTestGlobal Label
-hi! link typescriptConstructor GruvboxYellow
-hi! link typescriptDocComment GruvboxGreen
-hi! link typescriptDocNotation GruvboxGreen
-hi! link typescriptFuncKeyword GruvboxOrange
-hi! link typescriptObjectLabel GruvboxPurple
-hi! link typescriptLabel GruvboxYellow
-hi! link typescriptCall Normal 
-hi! link typescriptForOperator GruvboxOrange
-hi! link typescriptTypeReference Normal
-hi! link typescriptMember GruvboxPurple
-hi! link Keyword GruvboxYellow
-hi! link Structure Normal
-hi! link String GruvboxGreen
-hi! link Statement GruvboxOrange
-hi! link Identifier GruvboxOrange
-hi! link Function GruvboxYellow
-hi! link Label GruvboxOrange
-hi! link Conditional GruvboxOrange
-hi! link Repeat GruvboxOrange
+let g:gruvbox_contrast_dark = 'hard'
+" hi Normal guifg=#c3c3c3
+" This sort of a transformation of Gruvbox into IntelliJ Darcula
+hi GruvboxPurple guifg=#987699
+" hi! link GruvboxRed GruvboxOrange
+" hi! link GruvboxGreen GruvboxOrange
+" hi! link GruvboxAqua GruvboxOrange
+" hi GruvboxPurple guifg=#9876AA
+" hi GruvboxGreen guifg=#759960
+" hi GruvboxGreenBold guifg=#759960 gui=bold
+" hi! link GruvboxRed GruvboxOrange
+" hi! link pythonDecorator GruvboxOrange
+" hi! link pythonOperator GruvboxOrange
+" hi! link pythonException GruvboxOrange
+" hi! link pythonRepeat GruvboxOrange
+" hi! link pythonConditional Conditional
+" hi! link Number Normal
+" hi! link Boolean GruvboxOrange
+" hi! link typescriptClassKeyword GruvboxOrange
+" hi! link typescriptInterfaceKeyword GruvboxOrange
+" hi! link typescriptClassExtends GruvboxOrange
+" hi! link typescriptArrowFunc GruvboxOrange
+" hi! link typescriptInterfaceExtends GruvboxOrange
+" hi! link typescriptAccessibilityModifier GruvboxOrange
+" hi! link typescriptReadonlyModifier GruvboxOrange
+" hi! link typescriptPredefinedType GruvboxOrange
+" hi! link typeScriptDocTags GruvboxGreenBold
+" hi! link typescriptTestGlobal Label
+" hi! link typescriptConstructor GruvboxYellow
+" hi! link typescriptDocComment GruvboxGreen
+" hi! link typescriptDocNotation GruvboxGreen
+" hi! link typescriptFuncKeyword GruvboxOrange
+" hi! link typescriptObjectLabel GruvboxPurple
+" hi! link typescriptLabel GruvboxYellow
+" hi! link typescriptCall Normal 
+" hi! link typescriptForOperator GruvboxOrange
+" hi! link typescriptTypeReference Normal
+" hi! link typescriptMember GruvboxPurple
+" hi! link Keyword GruvboxYellow
+" hi! link Structure Normal
+" hi! link String GruvboxGreen
+" hi! link Statement GruvboxOrange
+" hi! link Identifier GruvboxOrange
+" hi! link Function GruvboxYellow
+" hi! link Label GruvboxOrange
+" hi! link Conditional GruvboxOrange
+" hi! link Repeat GruvboxOrange
 
 
 " Coc stuff
@@ -279,6 +273,9 @@ endfunction
 nnoremap <C-f> /
 nnoremap <C-S-f> :Ag<CR>
 
+" vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+nnoremap <s-F3> :call vimspector#Reset()<CR>
 
 " Load helps
 packloadall
@@ -296,4 +293,14 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " fixing tab
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
+" Disable auto-commenting new lines
+
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 set hidden
+
+" vim-inspector
+packadd! vimspector
+
+
+
