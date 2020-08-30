@@ -43,6 +43,3 @@
 [submodule "pack/andrestone/start/rainbow"]
 	path = pack/andrestone/start/rainbow
 	url = https://github.com/luochen1990/rainbow
-[submodule "pack/andrestone/start/gruvbox"]
-	path = pack/andrestone/start/gruvbox
-	url = https://github.com/morhetz/gruvbox
