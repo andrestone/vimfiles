@@ -171,7 +171,7 @@ map <silent><C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " UndoTREE
-nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " Window Navigation
 map <C-h> <C-W>h
