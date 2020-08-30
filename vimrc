@@ -305,6 +305,7 @@ set undodir=~/.vim/undo//
 " no wrap / colorcolumn
 set nowrap
 set colorcolumn=120
+nnoremap <leader>in :IndentGuidesToggle<CR>
 
 " Close quickfix after selecting item
 " autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
