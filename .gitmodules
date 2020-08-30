@@ -40,6 +40,12 @@
 [submodule "pack/andrestone/start/vim-commentary"]
 	path = pack/andrestone/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "pack/andrestone/start/rainbow"]
-	path = pack/andrestone/start/rainbow
-	url = https://github.com/luochen1990/rainbow
+[submodule "pack/andrestone/start/gruvbox"]
+	path = pack/andrestone/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "pack/andrestone/start/vim-jsx-pretty"]
+	path = pack/andrestone/start/vim-jsx-pretty
+	url = https://github.com/maxmellon/vim-jsx-pretty
+[submodule "pack/andrestone/start/vim-javascript"]
+	path = pack/andrestone/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
