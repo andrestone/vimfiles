@@ -189,7 +189,11 @@ set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 hi Normal guifg=#ded8c8 guibg=#1c1b1b
 hi GruvboxPurple guifg=#987699
-
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+let g:vim_jsx_pretty_colorful_config = 1
 
 " This sort of a transformation of Gruvbox into IntelliJ Darcula
 " hi! link GruvboxRed GruvboxOrange
@@ -278,6 +282,12 @@ endfunction
 " git gutter
 let g:gitgutter_map_keys = 0
 
+" commenting
+xmap <C-_> <Plug>Commentary
+nmap <C-_> <Plug>Commentary
+omap <C-_> <Plug>Commentary
+nmap <C-_> <Plug>CommentaryLine
+nmap gcu <Plug>Commentary<Plug>Commentary
 
 
 " fzf
