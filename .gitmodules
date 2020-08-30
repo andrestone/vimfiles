@@ -19,9 +19,6 @@
 [submodule "pack/andrestone/start/vim-css-color"]
 	path = pack/andrestone/start/vim-css-color
 	url = https://github.com/ap/vim-css-color
-[submodule "pack/andrestone/start/vim-jsx-pretty"]
-	path = pack/andrestone/start/vim-jsx-pretty
-	url = https://github.com/maxmellon/vim-jsx-pretty
 [submodule "pack/andrestone/start/coc.nvim"]
 	path = pack/andrestone/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
@@ -49,3 +46,6 @@
 [submodule "pack/andrestone/start/rainbow"]
 	path = pack/andrestone/start/rainbow
 	url = https://github.com/luochen1990/rainbow
+[submodule "pack/andrestone/start/gruvbox"]
+	path = pack/andrestone/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
