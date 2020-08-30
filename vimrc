@@ -333,6 +333,10 @@ nnoremap <leader>f4 :exec 'syn list '.synIDattr(synID(line('.'), col('.'), 0), '
 " matchit
 packadd! matchit
 
+" typescript compilation
+autocmd FileType typescript :set makeprg=tsc
+autocmd QuickFixCmdPost [^l]* nested cwindow
+
 " Load helps
 packloadall
 silent! helptags ALL

@@ -40,9 +40,6 @@
 [submodule "pack/andrestone/start/vim-jsx-pretty"]
 	path = pack/andrestone/start/vim-jsx-pretty
 	url = https://github.com/maxmellon/vim-jsx-pretty
-[submodule "pack/andrestone/start/vim-javascript"]
-	path = pack/andrestone/start/vim-javascript
-	url = https://github.com/pangloss/vim-javascript
 [submodule "pack/andrestone/start/undotree"]
 	path = pack/andrestone/start/undotree
 	url = https://github.com/mbbill/undotree
@@ -52,3 +49,9 @@
 [submodule "pack/andrestone/start/auto-pairs"]
 	path = pack/andrestone/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "pack/andrestone/start/yats.vim"]
+	path = pack/andrestone/start/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim
+[submodule "pack/andrestone/start/typescript-vim"]
+	path = pack/andrestone/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
