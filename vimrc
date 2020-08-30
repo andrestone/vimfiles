@@ -181,17 +181,17 @@ nnoremap ≥ <C-W>>
 nnoremap ≤ <C-W><lt>
 nnoremap – <C-W>-
 nnoremap ≠ <C-w>+
-nmap <S-H> zH
-nmap <S-L> zL
-inoremap <S-Tab> <Esc>la
+
 
 " Color
 colo gruvbox 
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
-" hi Normal guifg=#c3c3c3
-" This sort of a transformation of Gruvbox into IntelliJ Darcula
+hi Normal guifg=#ded8c8 guibg=#1c1b1b
 hi GruvboxPurple guifg=#987699
+
+
+" This sort of a transformation of Gruvbox into IntelliJ Darcula
 " hi! link GruvboxRed GruvboxOrange
 " hi! link GruvboxGreen GruvboxOrange
 " hi! link GruvboxAqua GruvboxOrange
@@ -252,14 +252,20 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-map <silent><F7> <Plug>(coc-references)
-map <silent><F2> <Plug>(coc-diagnostic-next)
-map <silent> <C-S-b> <Plug>(coc-type-definition)
-map <silent> <C-S-i> <Plug>(coc-implementation)
-inoremap <silent><F7> <Plug>(coc-references)
-map <silent> <C-b> <Plug>(coc-definition) 
-nnoremap <silent><leader>h :call <SID>show_documentation()<CR>
-nnoremap <silent><leader>l :call CocAction('format')<CR>
+map <F7> <Plug>(coc-references)
+map <F2> <Plug>(coc-diagnostic-next)
+map <C-S-b> <Plug>(coc-type-definition)
+map <C-S-i> <Plug>(coc-implementation)
+inoremap <F7> <Plug>(coc-references)
+map <C-b> <Plug>(coc-definition) 
+nnoremap <leader>h :call <SID>show_documentation()<CR>
+nnoremap <leader>l :call CocAction('format')<CR>
+nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>cf  <Plug>(coc-fix-current)
+nmap <leader>gb :BlamerToggle<CR>
+
+" git blamer
+let g:blamer_template = '<author>, <committer-time> • <summary>'
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -268,6 +274,11 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" git gutter
+let g:gitgutter_map_keys = 0
+
+
 
 " fzf
 nnoremap <C-f> /
@@ -297,10 +308,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" hide buffers instead of closing them
 set hidden
 
 " vim-inspector
 packadd! vimspector
-
-
 

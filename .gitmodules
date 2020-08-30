@@ -34,3 +34,15 @@
 [submodule "pack/andrestone/start/vimspector"]
 	path = pack/andrestone/start/vimspector
 	url = https://github.com/puremourning/vimspector
+[submodule "pack/andrestone/start/vim-javascript"]
+	path = pack/andrestone/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "pack/andrestone/start/vim-gitgutter"]
+	path = pack/andrestone/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "pack/andrestone/start/blamer.nvim"]
+	path = pack/andrestone/start/blamer.nvim
+	url = https://github.com/APZelos/blamer.nvim
+[submodule "pack/andrestone/start/indentLine"]
+	path = pack/andrestone/start/indentLine
+	url = https://github.com/Yggdroot/indentLine

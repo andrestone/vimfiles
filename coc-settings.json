@@ -1,0 +1,9 @@
+{
+  "python.jediEnabled": false,
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "graphql.filetypes": ["graphql"],
+  "graphql.watcherPattern": "**/*.{graphql,gql}"
+}
