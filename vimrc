@@ -144,9 +144,6 @@ endif
 " Relative number
 set number relativenumber nuw=1
 
-" Show hidden characters 
-" set list
-
 " Ignorecase / smartcase
 set ignorecase smartcase
 
@@ -169,8 +166,12 @@ nmap <leader>o :setlocal spell!<CR>
 vnoremap <S-C-c> "*y
 nmap <S-C-v> "*p
 
-" NerdTREE behaviour when opening files
+" NerdTREE
 map <silent><C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+" UndoTREE
+nnoremap <leader>u :UndotreeShow<CR>
 
 " Window Navigation
 map <C-h> <C-W>h
@@ -182,7 +183,6 @@ nnoremap ≤ <C-W><lt>
 nnoremap – <C-W>-
 nnoremap ≠ <C-w>+
 
-
 " Color
 colo gruvbox
 set termguicolors
@@ -190,7 +190,7 @@ let g:gruvbox_contrast_dark = 'hard'
 hi Normal guifg=#ded8c8 guibg=#1c1b1b
 hi GruvboxPurple guifg=#987699
 let g:vim_jsx_pretty_colorful_config = 1
-let g:rainbow_active = 1
+hi ColorColumn guibg=#212121
 
 " This sort of a transformation of Gruvbox into IntelliJ Darcula
 " hi! link GruvboxRed GruvboxOrange
@@ -286,7 +286,6 @@ omap <C-_> <Plug>Commentary
 nmap <C-_> <Plug>CommentaryLine
 nmap gcu <Plug>Commentary<Plug>Commentary
 
-
 " fzf
 nnoremap <C-f> /
 nnoremap <C-S-f> :Ag<CR>
@@ -295,24 +294,25 @@ nnoremap <C-S-f> :Ag<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 nnoremap <s-F3> :call vimspector#Reset()<CR>
 
-" Load helps
-packloadall
-silent! helptags ALL
-filetype plugin indent on
+" no errorbells
+set noerrorbells
 
-" no wrap
+" backup swap undo
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+" no wrap / colorcolumn
 set nowrap
-
-let NERDTreeShowHidden=1
+set colorcolumn=120
 
 " Close quickfix after selecting item
-autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+" autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 
 " fixing tab
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " Disable auto-commenting new lines
-
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " hide buffers instead of closing them
@@ -328,3 +328,11 @@ nnoremap <leader>f2 :echo ("hi<" . synIDattr(synID(line("."),col("."),1),"name")
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">")<cr>
 nnoremap <leader>f3 :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')<cr>
 nnoremap <leader>f4 :exec 'syn list '.synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
+
+" matchit
+packadd! matchit
+
+" Load helps
+packloadall
+silent! helptags ALL
+filetype plugin indent on

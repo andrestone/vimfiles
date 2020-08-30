@@ -34,9 +34,6 @@
 [submodule "pack/andrestone/start/blamer.nvim"]
 	path = pack/andrestone/start/blamer.nvim
 	url = https://github.com/APZelos/blamer.nvim
-[submodule "pack/andrestone/start/indentLine"]
-	path = pack/andrestone/start/indentLine
-	url = https://github.com/Yggdroot/indentLine
 [submodule "pack/andrestone/start/vim-commentary"]
 	path = pack/andrestone/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
@@ -49,3 +46,9 @@
 [submodule "pack/andrestone/start/vim-javascript"]
 	path = pack/andrestone/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "pack/andrestone/start/typescript-vim"]
+	path = pack/andrestone/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "pack/andrestone/start/undotree"]
+	path = pack/andrestone/start/undotree
+	url = https://github.com/mbbill/undotree
