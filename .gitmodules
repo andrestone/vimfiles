@@ -49,9 +49,6 @@
 [submodule "pack/andrestone/start/vim-indent-guides"]
 	path = pack/andrestone/start/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
-[submodule "pack/andrestone/start/yats.vim"]
-	path = pack/andrestone/start/yats.vim
-	url = https://github.com/HerringtonDarkholme/yats.vim
 [submodule "pack/andrestone/start/auto-pairs"]
 	path = pack/andrestone/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
