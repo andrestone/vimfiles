@@ -184,16 +184,13 @@ nnoremap ≠ <C-w>+
 
 
 " Color
-colo gruvbox 
+colo gruvbox
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 hi Normal guifg=#ded8c8 guibg=#1c1b1b
 hi GruvboxPurple guifg=#987699
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 let g:vim_jsx_pretty_colorful_config = 1
+let g:rainbow_active = 1
 
 " This sort of a transformation of Gruvbox into IntelliJ Darcula
 " hi! link GruvboxRed GruvboxOrange
@@ -324,3 +321,10 @@ set hidden
 " vim-inspector
 packadd! vimspector
 
+" Debugging syntax highlighting
+nnoremap <leader>f1 :echo synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
+nnoremap <leader>f2 :echo ("hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">")<cr>
+nnoremap <leader>f3 :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')<cr>
+nnoremap <leader>f4 :exec 'syn list '.synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
