@@ -187,9 +187,9 @@ nnoremap ≠ <C-w>+
 colo gruvbox
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
+let g:vim_jsx_pretty_colorful_config = 1
 hi Normal guifg=#ded8c8 guibg=#1c1b1b
 hi GruvboxPurple guifg=#987699
-let g:vim_jsx_pretty_colorful_config = 1
 hi ColorColumn guibg=#212121
 
 " This sort of a transformation of Gruvbox into IntelliJ Darcula
