@@ -163,6 +163,7 @@ let mapleader = " "
 nmap <leader>o :setlocal spell!<CR>
 
 " Copy / Paste
+nnoremap <C-a> ggVG
 vnoremap <S-C-c> "*y
 nmap <S-C-v> "*p
 

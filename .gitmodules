@@ -7,9 +7,6 @@
 [submodule "pack/andrestone/start/nerdtree"]
 	path = pack/andrestone/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "pack/andrestone/start/vim-graphql"]
-	path = pack/andrestone/start/vim-graphql
-	url = https://github.com/jparise/vim-graphql
 [submodule "pack/andrestone/start/fzf.vim"]
 	path = pack/andrestone/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
