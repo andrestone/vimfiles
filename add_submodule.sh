@@ -2,7 +2,7 @@
 # Usage: ./add_submodule.sh <git_url>
 url=$1
 pname=${url##*/}
-if [[ !  -z  $param  ]];then
+if [[ !  -z  $2  ]];then
   branch="--branch $2"
 else
   branch=""
