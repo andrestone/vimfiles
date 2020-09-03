@@ -7,4 +7,4 @@ if [[ !  -z  $2  ]];then
 else
   branch=""
 fi
-git submodule add --depth 1 $branch $1 ./pack/andrestone/start/$pname
+git submodule add $branch $1 ./pack/andrestone/start/$pname
