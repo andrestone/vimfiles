@@ -19,9 +19,6 @@
 [submodule "pack/andrestone/start/coc.nvim"]
 	path = pack/andrestone/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
-[submodule "pack/andrestone/start/vimspector"]
-	path = pack/andrestone/start/vimspector
-	url = https://github.com/puremourning/vimspector
 [submodule "pack/andrestone/start/vim-gitgutter"]
 	path = pack/andrestone/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
@@ -55,3 +52,6 @@
 [submodule "pack/andrestone/start/vim-graphql"]
 	path = pack/andrestone/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
+[submodule "pack/andrestone/start/yats.vim"]
+	path = pack/andrestone/start/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim

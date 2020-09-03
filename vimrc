@@ -163,7 +163,6 @@ let mapleader = " "
 nmap <leader>o :setlocal spell!<CR>
 
 " Copy / Paste
-nnoremap <C-a> ggVG
 vnoremap <S-C-c> "*y
 nmap <S-C-v> "*p
 
@@ -240,6 +239,18 @@ hi ColorColumn guibg=#212121
 
 
 " Coc stuff
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -257,7 +268,6 @@ endif
 map <F7> <Plug>(coc-references)
 map <F2> <Plug>(coc-diagnostic-next)
 map <C-S-b> <Plug>(coc-type-definition)
-map <C-S-i> <Plug>(coc-implementation)
 inoremap <F7> <Plug>(coc-references)
 map <C-b> <Plug>(coc-definition) 
 nnoremap <leader>h :call <SID>show_documentation()<CR>
@@ -279,8 +289,10 @@ endfunction
 
 " git gutter
 let g:gitgutter_map_keys = 0
+nnoremap <leader>gg :GitGutterToggle<CR>
 
 " commenting
+inoremap /**<CR> /**<CR>*<CR>*/<Esc>kA 
 xmap <C-_> <Plug>Commentary
 nmap <C-_> <Plug>Commentary
 omap <C-_> <Plug>Commentary
@@ -292,8 +304,39 @@ nnoremap <C-f> /
 nnoremap <C-S-f> :Ag<CR>
 
 " vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-nnoremap <s-F3> :call vimspector#Reset()<CR>
+nmap <leader><F8>   <Plug>VimspectorAddFunctionBreakpoint
+nmap <leader><F9>   <Plug>VimspectorToggleBreakpoint
+nmap <leader><F10>   <Plug>VimspectorToggleConditionalBreakpoint
+nmap <F4>          <Plug>VimspectorStop
+nmap <F5>          <Plug>VimspectorContinue
+nmap <F6>          <Plug>VimspectorPause
+nmap <F8>          <Plug>VimspectorStepOver
+nmap <F9>          <Plug>VimspectorStepInto
+nmap <F12>         <Plug>VimspectorStepOut
+nmap <leader><F5>  <Plug>VimspectorRestart
+nmap <F10>         :call vimspector#Reset()<CR>
+
+" custom winbar
+func! CustomiseUI()
+  call win_gotoid( g:vimspector_session_windows.code )
+  " Clear the existing WinBar created by Vimspector
+  nunmenu WinBar
+  " Cretae our own WinBar
+  nnoremenu WinBar.■\ F4 :call vimspector#Stop()<CR>
+  nnoremenu WinBar.▶\ F5 :call vimspector#Continue()<CR>
+  nnoremenu WinBar.▷\ F6 :call vimspector#Pause()<CR>
+  nnoremenu WinBar.↷\ F8 :call vimspector#StepOver()<CR>
+  nnoremenu WinBar.↓\ F9 :call vimspector#StepInto()<CR>
+  nnoremenu WinBar.↑\ F12 :call vimspector#StepOut()<CR>
+  nnoremenu WinBar.⟲:\ lF5 :call vimspector#Restart()<CR>
+  nnoremenu WinBar.✕\ F10 :call vimspector#Reset()<CR>
+endfunction
+
+augroup MyVimspectorUICustomistaion
+  autocmd!
+  autocmd User VimspectorUICreated call CustomiseUI()
+augroup END
+
 
 " no errorbells
 set noerrorbells
@@ -337,6 +380,10 @@ packadd! matchit
 " typescript compilation
 autocmd FileType typescript :set makeprg=tsc
 autocmd QuickFixCmdPost [^l]* nested cwindow
+
+" alternative auto change dir (autochdir)
+autocmd BufEnter * silent! lcd %:p:h
+
 
 " Load helps
 packloadall
