@@ -5,7 +5,6 @@ pname=${url##*/}
 if [[ !  -z  $2  ]];then
   branch="--branch $2"
 else
-  branch=""
+  branch="--depth 1"
 fi
 git submodule add $branch $1 ./pack/andrestone/start/$pname
-
