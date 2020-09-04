@@ -55,3 +55,6 @@
 [submodule "pack/andrestone/start/yats.vim"]
 	path = pack/andrestone/start/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim
+[submodule "pack/andrestone/start/vim-snippets"]
+	path = pack/andrestone/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
