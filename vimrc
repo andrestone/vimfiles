@@ -141,6 +141,10 @@ if has('langmap') && exists('+langremap')
 endif
 
 " My stuff
+" Cursor shape
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " Relative number
 set number relativenumber nuw=1
 
@@ -267,7 +271,7 @@ else
 endif
 map <F7> <Plug>(coc-references)
 map <F2> <Plug>(coc-diagnostic-next)
-map <C-S-b> <Plug>(coc-type-definition)
+map <S-C-b> <Plug>(coc-type-definition)
 inoremap <F7> <Plug>(coc-references)
 map <C-b> <Plug>(coc-definition) 
 nnoremap <leader>h :call <SID>show_documentation()<CR>
@@ -292,7 +296,7 @@ let g:gitgutter_map_keys = 0
 nnoremap <leader>gg :GitGutterToggle<CR>
 
 " commenting
-inoremap /**<CR> /**<CR>*<CR>*/<Esc>kA 
+inoremap /**<CR> /**<CR> *<CR>*/<Esc>kA 
 xmap <C-_> <Plug>Commentary
 nmap <C-_> <Plug>Commentary
 omap <C-_> <Plug>Commentary
@@ -300,8 +304,7 @@ nmap <C-_> <Plug>CommentaryLine
 nmap gcu <Plug>Commentary<Plug>Commentary
 
 " fzf
-nnoremap <C-f> /
-nnoremap <C-S-f> :Ag<CR>
+nnoremap <C-f> :Ag<CR>
 
 " vimspector
 nmap <leader><F8>   <Plug>VimspectorAddFunctionBreakpoint
