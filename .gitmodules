@@ -40,9 +40,6 @@
 [submodule "pack/andrestone/start/vim-indent-guides"]
 	path = pack/andrestone/start/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
-[submodule "pack/andrestone/start/vim-javascript"]
-	path = pack/andrestone/start/vim-javascript
-	url = https://github.com/pangloss/vim-javascript
 [submodule "pack/andrestone/start/vim-graphql"]
 	path = pack/andrestone/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
