@@ -49,9 +49,6 @@
 [submodule "pack/andrestone/start/vim-graphql"]
 	path = pack/andrestone/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
-[submodule "pack/andrestone/start/yats.vim"]
-	path = pack/andrestone/start/yats.vim
-	url = https://github.com/HerringtonDarkholme/yats.vim
 [submodule "pack/andrestone/start/vim-snippets"]
 	path = pack/andrestone/start/vim-snippets
 	url = https://github.com/honza/vim-snippets
@@ -61,3 +58,6 @@
 [submodule "pack/andrestone/start/auto-pairs"]
 	path = pack/andrestone/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "pack/andrestone/start/vim-markdown"]
+	path = pack/andrestone/start/vim-markdown
+	url = https://github.com/tpope/vim-markdown

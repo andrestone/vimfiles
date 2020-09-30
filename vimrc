@@ -192,6 +192,7 @@ colo gruvbox
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 let g:vim_jsx_pretty_colorful_config = 1
+set  background=dark
 hi Normal guifg=#ded8c8 guibg=#1c1b1b
 hi GruvboxPurple guifg=#987699
 hi ColorColumn guibg=#212121
@@ -388,8 +389,8 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd BufEnter * silent! lcd %:p:h
 
 " markdown syntax highlighting
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-" let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'js=javascript', 'gql=graphql']
+au BufNewFile,BufRead *.md set filetype=markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'gql=graphql', 'js=javascript']
 
 " Load helps
 packloadall
