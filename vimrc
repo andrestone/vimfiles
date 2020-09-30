@@ -388,7 +388,8 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd BufEnter * silent! lcd %:p:h
 
 " markdown syntax highlighting
-" let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'js=javascript', 'javascript']
+" let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'js=javascript', 'javascript', 'gql=graphql']
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " Load helps
 packloadall
