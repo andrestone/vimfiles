@@ -387,6 +387,8 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 " alternative auto change dir (autochdir)
 autocmd BufEnter * silent! lcd %:p:h
 
+" markdown syntax highlighting
+" let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'js=javascript', 'javascript']
 
 " Load helps
 packloadall
