@@ -388,6 +388,9 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 " alternative auto change dir (autochdir)
 autocmd BufEnter * silent! lcd %:p:h
 
+" vtl Template strings
+au BufNewFile,BufRead *.ts,*.js call SyntaxRange#Include('vtl`', '`', 'velocity', 'String')
+
 " markdown syntax highlighting
 au BufNewFile,BufRead *.md set filetype=markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'gql=graphql', 'js=javascript', 'javascript']
@@ -396,3 +399,4 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript',
 packloadall
 silent! helptags ALL
 filetype plugin indent on
+
