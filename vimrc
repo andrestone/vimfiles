@@ -390,7 +390,7 @@ autocmd BufEnter * silent! lcd %:p:h
 
 " markdown syntax highlighting
 au BufNewFile,BufRead *.md set filetype=markdown
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'gql=graphql', 'js=javascript']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'gql=graphql', 'js=javascript', 'javascript']
 
 " Load helps
 packloadall
