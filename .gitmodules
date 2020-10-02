@@ -58,3 +58,6 @@
 [submodule "pack/andrestone/start/vim-SyntaxRange"]
 	path = pack/andrestone/start/vim-SyntaxRange
 	url = https://github.com/inkarkat/vim-SyntaxRange
+[submodule "pack/andrestone/start/vim-velocity"]
+	path = pack/andrestone/start/vim-velocity
+	url = https://github.com/lepture/vim-velocity
