@@ -177,11 +177,21 @@ let NERDTreeShowHidden=1
 " UndoTREE
 nnoremap <leader>u :UndotreeToggle<CR>
 
+" insert blank lines with <enter>
+function! FixWindowsSize()
+    if (&buftype != "nofile")
+      execute "normal! \<C-w>=:vertical resize 126\<cr>0"
+    endif
+endfunction
+
 " Window Navigation
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <C-j> <C-W>j
-map <C-k> <C-W>k
+" nnoremap <C-h> <C-W>h <C-W>=:vertical resize 126<CR>
+tnoremap <C-j> <C-w>N:vertical resize 126<CR>:resize 16<CR>a
+tnoremap <C-k> <C-w>N:resize 3<CR><C-w>k
+nnoremap <C-h> <C-W>h :call FixWindowsSize()<CR>
+nnoremap <C-l> <C-W>l :call FixWindowsSize()<CR>
+nnoremap <C-j> <C-W>ji
+nnoremap <C-k> <C-W>k
 nnoremap ≥ <C-W>>
 nnoremap ≤ <C-W><lt>
 nnoremap – <C-W>-
@@ -295,6 +305,7 @@ endfunction
 " git gutter
 let g:gitgutter_map_keys = 0
 nnoremap <leader>gg :GitGutterToggle<CR>
+let g:gitgutter_enabled = 0
 
 " commenting
 inoremap /**<CR> /**<CR> *<CR>*/<Esc>kA 
@@ -303,6 +314,10 @@ nmap <C-_> <Plug>Commentary
 omap <C-_> <Plug>Commentary
 nmap <C-_> <Plug>CommentaryLine
 nmap gcu <Plug>Commentary<Plug>Commentary
+
+" e-regex searches
+:nnoremap / /\v
+:cnoremap s/ s/\v
 
 " fzf
 nnoremap <C-f> :Ag<CR>
@@ -386,7 +401,8 @@ autocmd FileType typescript :set makeprg=tsc
 autocmd QuickFixCmdPost [^l]* nested cwindow
 
 " alternative auto change dir (autochdir)
-autocmd BufEnter * silent! lcd %:p:h
+set autochdir
+nnoremap <leader>cd :cd %:h<CR>:pwd<CR>
 
 " vtl Template strings
 au BufNewFile,BufRead *.ts,*.js call SyntaxRange#Include('vtl`', '`', 'velocity', 'String')
@@ -395,6 +411,18 @@ au BufNewFile,BufRead *.ts,*.js call SyntaxRange#Include('vtl`', '`', 'velocity'
 au BufNewFile,BufRead *.md set filetype=markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'gql=graphql', 'js=javascript', 'javascript']
 
+" Execute in terminal window
+if has('nvim')
+  tnoremap <Esc><Esc> <C-\><C-n>
+  command! -nargs=+ Tx vsplit term://zsh <args>
+  command! Tw sp +set\ winfixheight term://zsh
+else
+  tnoremap <Esc><Esc> <C-w>N
+  command! -nargs=+ Tx :ter ++close <args>
+  command! Tw Twsize|:ter ++curwin
+  command! -bar Twsize Twindow|:res 16
+  command! -bar Twindow :sp +set\ winfixheight
+endif
 " Load helps
 packloadall
 silent! helptags ALL

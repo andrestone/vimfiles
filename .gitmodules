@@ -61,3 +61,6 @@
 [submodule "pack/andrestone/start/vim-velocity"]
 	path = pack/andrestone/start/vim-velocity
 	url = https://github.com/lepture/vim-velocity
+[submodule "pack/andrestone/start/vim-obsession"]
+	path = pack/andrestone/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession

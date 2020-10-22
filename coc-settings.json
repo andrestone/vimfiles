@@ -3,7 +3,8 @@
   "eslint.autoFix": true,
   "prettier.eslintIntegration": true,
   "prettier.singleQuote": true,
-  "prettier.printWidth": 150,
+  "prettier.printWidth": 120,
+  "prettier.proseWrap": "always",
   "graphql.filetypes": ["graphql"],
   "graphql.watcherPattern": "**/*.{graphql,gql}",
   "coc.source.omni.filetypes": [
