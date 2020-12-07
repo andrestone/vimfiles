@@ -28,9 +28,6 @@
 [submodule "pack/andrestone/start/vim-commentary"]
 	path = pack/andrestone/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "pack/andrestone/start/gruvbox"]
-	path = pack/andrestone/start/gruvbox
-	url = https://github.com/morhetz/gruvbox
 [submodule "pack/andrestone/start/vim-jsx-pretty"]
 	path = pack/andrestone/start/vim-jsx-pretty
 	url = https://github.com/maxmellon/vim-jsx-pretty
@@ -64,3 +61,9 @@
 [submodule "pack/andrestone/start/vim-obsession"]
 	path = pack/andrestone/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession
+[submodule "pack/andrestone/start/iceberg.vim"]
+	path = pack/andrestone/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim
+[submodule "pack/andrestone/start/vim-colorschemes"]
+	path = pack/andrestone/start/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes

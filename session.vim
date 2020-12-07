@@ -22,15 +22,18 @@ map! <D-v> *
 map  <Plug>(coc-definition) 
 vnoremap  "*y
 nnoremap  :Ag
-nnoremap  h :call FixWindowsSize()
-nnoremap <NL> ji
-tnoremap <NL> N:vertical resize 126:resize 16a
-nnoremap  k
-tnoremap  N:resize 3k
-nnoremap  l :call FixWindowsSize()
+nnoremap <silent>  :set wfw!h :call FixWindowsSize()
+tnoremap <silent>  N:resize 3akh
+nnoremap <silent> <NL> j
+tnoremap <silent> <NL> N:vertical resize 126:resize 16a
+nnoremap <silent>  k
+tnoremap <silent>  N:resize 3ak
+nnoremap <silent>  :set wfw!l :call FixWindowsSize()
+tnoremap <silent>  N:resize 3akl
 map <silent>  :NERDTreeToggle
 nmap  "*p
 tnoremap  N
+smap  <Plug>Commentary
 omap  <Plug>Commentary
 nmap  <Plug>CommentaryLine
 xmap  <Plug>Commentary
@@ -45,17 +48,28 @@ nmap  <F5> <Plug>VimspectorRestart
 nmap  <F10> <Plug>VimspectorToggleConditionalBreakpoint
 nmap  <F9> <Plug>VimspectorToggleBreakpoint
 nmap  <F8> <Plug>VimspectorAddFunctionBreakpoint
+vnoremap  /* di/**/kp
+vnoremap  ~ di~~hp
+vnoremap  ' di''hp
+vnoremap  " di""hp
+vnoremap  ( di()hp
+vnoremap  [ di[]hp
+vnoremap  ` di``hp
+vnoremap  { di{}kp
 nnoremap  gg :GitGutterToggle
 nmap  gb :BlamerToggle
 nmap  cf <Plug>(coc-fix-current)
 nmap  ca <Plug>(coc-codeaction)
 nnoremap  l :call CocAction('format')
+nnoremap <silent>  <C-J> :Tw
+nnoremap <silent>  <NL> :Tw
 nnoremap  u :UndotreeToggle
 nmap  o :setlocal spell!
 omap <silent> % <Plug>(MatchitOperationForward)
 xmap <silent> % <Plug>(MatchitVisualForward)
 nmap <silent> % <Plug>(MatchitNormalForward)
 nnoremap / /\v
+xmap <S-^?> <Plug>Commentary
 map Q gq
 omap <silent> [% <Plug>(MatchitOperationMultiBackward)
 xmap <silent> [% <Plug>(MatchitVisualMultiBackward)
@@ -75,6 +89,14 @@ nmap gc <Plug>Commentary
 xmap gc <Plug>Commentary
 nmap gcu <Plug>Commentary<Plug>Commentary
 vnoremap <silent> <Plug>(coc-snippets-select) :call coc#rpc#notify('doKeymap', ['snippets-select'])
+smap <C-_> <Plug>Commentary
+xmap <C-/> <Plug>Commentary
+xmap <C-S-/> <Plug>Commentary
+xmap <C-S-?> <Plug>Commentary
+xmap <S-^?> <Plug>Commentary
+nnoremap <Plug>(-fzf-vim-do) :execute g:__fzf_command
+nnoremap <Plug>(-fzf-/) /
+nnoremap <Plug>(-fzf-:) :
 nnoremap <SNR>97_: :=v:count ? v:count : ''
 xmap <silent> <Plug>(MatchitVisualTextObject) <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
 onoremap <silent> <Plug>(MatchitOperationMultiForward) :call matchit#MultiMatch("W",  "o")
@@ -173,12 +195,14 @@ map <C-B> <Plug>(coc-definition)
 map <C-S-B> <Plug>(coc-type-definition)
 map <F2> <Plug>(coc-diagnostic-next)
 map <F7> <Plug>(coc-references)
-nnoremap <C-K> k
-nnoremap <C-J> ji
-nnoremap <C-L> l :call FixWindowsSize()
-nnoremap <C-H> h :call FixWindowsSize()
-tnoremap <C-K> N:resize 3k
-tnoremap <C-J> N:vertical resize 126:resize 16a
+nnoremap <silent> <C-K> k
+nnoremap <silent> <C-J> j
+nnoremap <silent> <C-L> :set wfw!l :call FixWindowsSize()
+nnoremap <silent> <C-H> :set wfw!h :call FixWindowsSize()
+tnoremap <silent> <C-L> N:resize 3akl
+tnoremap <silent> <C-H> N:resize 3akh
+tnoremap <silent> <C-K> N:resize 3ak
+tnoremap <silent> <C-J> N:vertical resize 126:resize 16a
 map <silent> <C-N> :NERDTreeToggle
 nmap <C-S-V> "*p
 vnoremap <C-S-C> "*y
@@ -200,6 +224,7 @@ set autochdir
 set background=dark
 set backspace=indent,eol,start
 set backupdir=~/.vim/backup//
+set commentstring=#\ %s
 set directory=~/.vim/swap//
 set display=truncate
 set expandtab
@@ -215,6 +240,7 @@ set laststatus=2
 set makeprg=tsc
 set mouse=a
 set nrformats=bin,hex
+set operatorfunc=<SNR>45_go
 set ruler
 set runtimepath=
 set runtimepath+=~/.vim
@@ -262,6 +288,7 @@ set ttimeoutlen=100
 set undodir=~/.vim/undo//
 set wildmenu
 set wildmode=longest,list,full
+set window=70
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -273,7 +300,7 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-edit ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md
+edit ~/dev/repos/stonekit/dishes/@accounts/iac/lib/iac-stack.ts
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -281,7 +308,16 @@ wincmd _ | wincmd |
 vsplit
 wincmd _ | wincmd |
 vsplit
-3wincmd h
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+6wincmd h
+wincmd w
+wincmd w
+wincmd w
 wincmd w
 wincmd w
 wincmd w
@@ -290,13 +326,16 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 182) / 364)
-exe 'vert 2resize ' . ((&columns * 110 + 182) / 364)
-exe 'vert 3resize ' . ((&columns * 126 + 182) / 364)
-exe 'vert 4resize ' . ((&columns * 94 + 182) / 364)
+exe 'vert 1resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 2resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 3resize ' . ((&columns * 21 + 127) / 254)
+exe 'vert 4resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 5resize ' . ((&columns * 21 + 127) / 254)
+exe 'vert 6resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 7resize ' . ((&columns * 126 + 127) / 254)
 argglobal
 enew
-file ~/dev/repos/stonekit/NERD_tree_1
+file ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/NERD_tree_3
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -400,7 +439,7 @@ setlocal cinwords=if,else,while,do,for,switch
 set colorcolumn=120
 setlocal colorcolumn=120
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=nvic
 setlocal conceallevel=2
@@ -505,12 +544,194 @@ setlocal varsofttabstop=
 setlocal vartabstop=
 setlocal wincolor=
 setlocal nowinfixheight
-setlocal winfixwidth
+setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 wincmd w
 argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <C-H> =AutoPairsDelete()
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> î :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
+inoremap <buffer> <silent> â =AutoPairsBackInsert()
+inoremap <buffer> <silent> å =AutoPairsFastWrap()
+inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
+inoremap <buffer> <silent>  =AutoPairsDelete()
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+noremap <buffer> <silent> î :call AutoPairsJump()
+noremap <buffer> <silent> ð :call AutoPairsToggle()
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=120
+setlocal colorcolumn=120
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=//%s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'typescript'
+setlocal filetype=typescript
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=Fixedgq(v:lnum,v:count)
+setlocal formatoptions=ql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetTypescriptIndent()
+setlocal indentkeys=0{,0},0),0],0,,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,$
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+set numberwidth=1
+setlocal numberwidth=1
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=%!airline#statusline(2)
+setlocal suffixesadd=.ts,.d.ts,.tsx,.js,.jsx,.cjs,.mjs
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'typescript'
+setlocal syntax=typescript
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 23 - ((22 * winheight(0) + 34) / 69)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+23
+normal! 0
+wincmd w
+argglobal
+if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -661,7 +882,7 @@ setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal spelloptions=
-setlocal statusline=%!airline#statusline(2)
+setlocal statusline=%!airline#statusline(3)
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
@@ -688,11 +909,561 @@ set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 41 - ((34 * winheight(0) + 33) / 66)
+let s:l = 22 - ((21 * winheight(0) + 34) / 69)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-41
+22
+normal! 0
+wincmd w
+argglobal
+if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <C-H> =AutoPairsDelete()
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> î :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
+inoremap <buffer> <silent> â =AutoPairsBackInsert()
+inoremap <buffer> <silent> å =AutoPairsFastWrap()
+inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+xnoremap <buffer> <silent> [[ :exe "normal! gv"|call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "bsW")
+nnoremap <buffer> <silent> [[ :call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "bsW")
+xnoremap <buffer> <silent> ]] :exe "normal! gv"|call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "sW")
+nnoremap <buffer> <silent> ]] :call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "sW")
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
+inoremap <buffer> <silent>  =AutoPairsDelete()
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+noremap <buffer> <silent> î :call AutoPairsJump()
+noremap <buffer> <silent> ð :call AutoPairsToggle()
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=120
+setlocal colorcolumn=120
+setlocal comments=fb:*,fb:-,fb:+,n:>
+setlocal commentstring=<!--%s-->
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'markdown'
+setlocal filetype=markdown
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tqln
+setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\|^\\s*[-*+]\\s\\+\\|^\\[^\\ze[^\\]]\\+\\]:
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+set numberwidth=1
+setlocal numberwidth=1
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=%!airline#statusline(4)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'markdown'
+setlocal syntax=markdown
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 87 - ((23 * winheight(0) + 34) / 69)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+87
+normal! 0
+wincmd w
+argglobal
+if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <C-H> =AutoPairsDelete()
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> î :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
+inoremap <buffer> <silent> â =AutoPairsBackInsert()
+inoremap <buffer> <silent> å =AutoPairsFastWrap()
+inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
+inoremap <buffer> <silent>  =AutoPairsDelete()
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+noremap <buffer> <silent> î :call AutoPairsJump()
+noremap <buffer> <silent> ð :call AutoPairsToggle()
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=120
+setlocal colorcolumn=120
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'graphql'
+setlocal filetype=graphql
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=q
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetGraphQLIndent()
+setlocal indentkeys=0{,0},0),0[,0],0#,!^F,o,O
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,$,@-@
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+set numberwidth=1
+setlocal numberwidth=1
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=%!airline#statusline(5)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'graphql'
+setlocal syntax=graphql
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 38 - ((29 * winheight(0) + 34) / 69)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+38
+normal! 0
+wincmd w
+argglobal
+if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <C-H> =AutoPairsDelete()
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> î :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
+inoremap <buffer> <silent> â =AutoPairsBackInsert()
+inoremap <buffer> <silent> å =AutoPairsFastWrap()
+inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
+inoremap <buffer> <silent>  =AutoPairsDelete()
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+noremap <buffer> <silent> î :call AutoPairsJump()
+noremap <buffer> <silent> ð :call AutoPairsToggle()
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=120
+setlocal colorcolumn=120
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'graphql'
+setlocal filetype=graphql
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=q
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetGraphQLIndent()
+setlocal indentkeys=0{,0},0),0[,0],0#,!^F,o,O
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,$,@-@
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+set numberwidth=1
+setlocal numberwidth=1
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=%!airline#statusline(6)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'graphql'
+setlocal syntax=graphql
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 12 - ((11 * winheight(0) + 34) / 69)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+12
 normal! 0
 wincmd w
 argglobal
@@ -843,7 +1614,7 @@ setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal spelloptions=
-setlocal statusline=%!airline#statusline(3)
+setlocal statusline=%!airline#statusline(7)
 setlocal suffixesadd=.ts,.d.ts,.tsx,.js,.jsx,.cjs,.mjs
 setlocal swapfile
 setlocal synmaxcol=3000
@@ -865,209 +1636,37 @@ setlocal varsofttabstop=
 setlocal vartabstop=
 setlocal wincolor=
 setlocal nowinfixheight
-setlocal nowinfixwidth
+set winfixwidth
+setlocal winfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 84 - ((32 * winheight(0) + 33) / 66)
+let s:l = 530 - ((34 * winheight(0) + 34) / 69)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-84
+530
 normal! 0
 wincmd w
-argglobal
-if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/test/singled.test.ts") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/test/singled.test.ts | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/test/singled.test.ts | endif
-let s:cpo_save=&cpo
-set cpo&vim
-inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
-inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
-inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
-inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
-inoremap <buffer> <silent> <C-H> =AutoPairsDelete()
-inoremap <buffer> <silent> <BS> =AutoPairsDelete()
-inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
-inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
-inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
-inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
-inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
-inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
-inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
-inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
-inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
-inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
-inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
-inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
-inoremap <buffer> <silent> î :call AutoPairsJump()a
-inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
-inoremap <buffer> <silent> â =AutoPairsBackInsert()
-inoremap <buffer> <silent> å =AutoPairsFastWrap()
-inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
-inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
-inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
-inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
-noremap <buffer> <silent> <M-n> :call AutoPairsJump()
-noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
-inoremap <buffer> <silent>  =AutoPairsDelete()
-inoremap <buffer> <silent>   =AutoPairsSpace()
-inoremap <buffer> <silent> " =AutoPairsInsert('"')
-inoremap <buffer> <silent> ' =AutoPairsInsert('''')
-inoremap <buffer> <silent> ( =AutoPairsInsert('(')
-inoremap <buffer> <silent> ) =AutoPairsInsert(')')
-noremap <buffer> <silent> î :call AutoPairsJump()
-noremap <buffer> <silent> ð :call AutoPairsToggle()
-inoremap <buffer> <silent> [ =AutoPairsInsert('[')
-inoremap <buffer> <silent> ] =AutoPairsInsert(']')
-inoremap <buffer> <silent> ` =AutoPairsInsert('`')
-inoremap <buffer> <silent> { =AutoPairsInsert('{')
-inoremap <buffer> <silent> } =AutoPairsInsert('}')
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal noautoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-set colorcolumn=120
-setlocal colorcolumn=120
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=//%s
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal cursorlineopt=both
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'typescript'
-setlocal filetype=typescript
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=Fixedgq(v:lnum,v:count)
-setlocal formatoptions=ql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetTypescriptIndent()
-setlocal indentkeys=0{,0},0),0],0,,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,$
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-set number
-setlocal number
-set numberwidth=1
-setlocal numberwidth=1
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-set relativenumber
-setlocal relativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal scrolloff=-1
-setlocal shiftwidth=2
-setlocal noshortname
-setlocal showbreak=
-setlocal sidescrolloff=-1
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal spelloptions=
-setlocal statusline=%!airline#statusline(4)
-setlocal suffixesadd=.ts,.d.ts,.tsx,.js,.jsx,.cjs,.mjs
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'typescript'
-setlocal syntax=typescript
-endif
-setlocal tabstop=8
-setlocal tagcase=
-setlocal tagfunc=
-setlocal tags=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal varsofttabstop=
-setlocal vartabstop=
-setlocal wincolor=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-set nowrap
-setlocal nowrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 9 - ((8 * winheight(0) + 33) / 66)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-9
-normal! 0
-wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 182) / 364)
-exe 'vert 2resize ' . ((&columns * 110 + 182) / 364)
-exe 'vert 3resize ' . ((&columns * 126 + 182) / 364)
-exe 'vert 4resize ' . ((&columns * 94 + 182) / 364)
+7wincmd w
+exe 'vert 1resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 2resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 3resize ' . ((&columns * 21 + 127) / 254)
+exe 'vert 4resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 5resize ' . ((&columns * 21 + 127) / 254)
+exe 'vert 6resize ' . ((&columns * 20 + 127) / 254)
+exe 'vert 7resize ' . ((&columns * 126 + 127) / 254)
 tabnext 1
-badd +40 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md
-badd +74 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/singled.ts
-badd +0 ~/dev/repos/stonekit/dishes/@utils/backend/test/singled.test.ts
+badd +161 ~/dev/repos/stonekit/dishes/@accounts/iac/lib/iac-stack.ts
+badd +22 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md
+badd +118 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md
+badd +5 ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql
+badd +30 ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql
+badd +472 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/singled.ts
+badd +195 ~/.vim/vimrc
+badd +6 ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.ts
+badd +1 ~/Desktop/stack.yaml.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -1079,7 +1678,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

@@ -180,18 +180,21 @@ nnoremap <leader>u :UndotreeToggle<CR>
 " insert blank lines with <enter>
 function! FixWindowsSize()
     if (&buftype != "nofile")
-      execute "normal! \<C-w>=:vertical resize 126\<cr>0"
+      execute "normal! :vertical resize 126\<CR>:set wfw\<CR>\<C-w>=0"
     endif
 endfunction
 
 " Window Navigation
 " nnoremap <C-h> <C-W>h <C-W>=:vertical resize 126<CR>
-tnoremap <C-j> <C-w>N:vertical resize 126<CR>:resize 16<CR>a
-tnoremap <C-k> <C-w>N:resize 3<CR><C-w>k
-nnoremap <C-h> <C-W>h :call FixWindowsSize()<CR>
-nnoremap <C-l> <C-W>l :call FixWindowsSize()<CR>
-nnoremap <C-j> <C-W>ji
-nnoremap <C-k> <C-W>k
+tnoremap <silent><C-j> <C-w>N:vertical resize 126<CR>:resize 16<CR>a
+tnoremap <silent><C-k> <C-w>N:resize 3<CR>a<C-w>k
+tnoremap <silent><C-h> <C-w>N:resize 3<CR>a<C-w>k<C-w>h
+tnoremap <silent><C-l> <C-w>N:resize 3<CR>a<C-w>k<C-w>l
+nnoremap <silent><C-h> :set wfw!<CR><C-W>h :call FixWindowsSize()<CR>
+nnoremap <silent><C-l> :set wfw!<CR><C-W>l :call FixWindowsSize()<CR>
+nnoremap <silent><C-j> <C-W>j
+nnoremap <silent><leader><C-j> :Tw<CR>
+nnoremap <silent><C-k> <C-W>k
 nnoremap ≥ <C-W>>
 nnoremap ≤ <C-W><lt>
 nnoremap – <C-W>-
@@ -278,7 +281,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+  inoremap <silent><expr> <c-space> coc#refresh()
 endif
 map <F7> <Plug>(coc-references)
 map <F2> <Plug>(coc-diagnostic-next)
@@ -314,6 +317,16 @@ nmap <C-_> <Plug>Commentary
 omap <C-_> <Plug>Commentary
 nmap <C-_> <Plug>CommentaryLine
 nmap gcu <Plug>Commentary<Plug>Commentary
+
+" wrapping text with
+vnoremap <leader>{ di{<CR>}<ESC>kp
+vnoremap <leader>` di``<ESC>hp
+vnoremap <leader>[ di[]<ESC>hp
+vnoremap <leader>( di()<ESC>hp
+vnoremap <leader>" di""<ESC>hp
+vnoremap <leader>' di''<ESC>hp
+vnoremap <leader>~ di~~<ESC>hp
+vnoremap <leader>/* di/*<CR>*/<ESC>kp
 
 " e-regex searches
 :nnoremap / /\v
