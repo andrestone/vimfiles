@@ -7,8 +7,6 @@
   "prettier.proseWrap": "always",
   "graphql.filetypes": ["graphql"],
   "graphql.watcherPattern": "**/*.{graphql,gql}",
-  "coc.source.omni.filetypes": [
-    "VimspectorPrompt"
-  ],
+  "coc.source.omni.filetypes": ["VimspectorPrompt"],
   "clangd.path": "/Users/andrestone/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
 }

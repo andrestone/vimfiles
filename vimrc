@@ -172,6 +172,7 @@ nmap <S-C-v> "*p
 
 " NerdTREE
 map <silent><C-n> :NERDTreeToggle<CR>
+map <silent><leader><C-n> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 
 " UndoTREE
@@ -181,20 +182,31 @@ nnoremap <leader>u :UndotreeToggle<CR>
 function! FixWindowsSize()
     if (&buftype != "nofile")
       execute "normal! :vertical resize 126\<CR>:set wfw\<CR>\<C-w>=0"
+    else
+      execute "normal! :vertical resize 31\<CR>:set wfw\<CR>\<C-w>=0"
+    endif
+endfunction
+
+function! UnsetFixWidth()
+    if (&buftype != "nofile")
+      execute "normal! :set wfw!\<CR>"
+    else
+      execute "normal! :set wfw\<CR>"
     endif
 endfunction
 
 " Window Navigation
 " nnoremap <C-h> <C-W>h <C-W>=:vertical resize 126<CR>
-tnoremap <silent><C-j> <C-w>N:vertical resize 126<CR>:resize 16<CR>a
+tnoremap <silent><C-j> <C-w>N:resize 16<CR>a
 tnoremap <silent><C-k> <C-w>N:resize 3<CR>a<C-w>k
 tnoremap <silent><C-h> <C-w>N:resize 3<CR>a<C-w>k<C-w>h
 tnoremap <silent><C-l> <C-w>N:resize 3<CR>a<C-w>k<C-w>l
-nnoremap <silent><C-h> :set wfw!<CR><C-W>h :call FixWindowsSize()<CR>
-nnoremap <silent><C-l> :set wfw!<CR><C-W>l :call FixWindowsSize()<CR>
+nnoremap <C-h> :set wfw<CR>:call UnsetFixWidth()<CR><C-W>h:call FixWindowsSize()<CR>
+nnoremap <C-l> :set wfw<CR>:call UnsetFixWidth()<CR><C-W>l:call FixWindowsSize()<CR>
 nnoremap <silent><C-j> <C-W>j
 nnoremap <silent><leader><C-j> :Tw<CR>
 nnoremap <silent><C-k> <C-W>k
+nnoremap <leader><C-l> <C-w>x
 nnoremap ≥ <C-W>>
 nnoremap ≤ <C-W><lt>
 nnoremap – <C-W>-
@@ -287,7 +299,7 @@ map <F7> <Plug>(coc-references)
 map <F2> <Plug>(coc-diagnostic-next)
 map <S-C-b> <Plug>(coc-type-definition)
 inoremap <F7> <Plug>(coc-references)
-map <C-b> <Plug>(coc-definition) 
+map <C-b> <Plug>(coc-definition)
 nnoremap <leader>h :call <SID>show_documentation()<CR>
 nnoremap <leader>l :call CocAction('format')<CR>
 nmap <leader>ca <Plug>(coc-codeaction)
@@ -312,10 +324,10 @@ let g:gitgutter_enabled = 0
 
 " commenting
 inoremap /**<CR> /**<CR> *<CR>*/<Esc>kA 
-xmap <C-_> <Plug>Commentary
-nmap <C-_> <Plug>Commentary
-omap <C-_> <Plug>Commentary
-nmap <C-_> <Plug>CommentaryLine
+xmap <C-/> <Plug>Commentary
+nmap <C-/> <Plug>Commentary
+omap <C-/> <Plug>Commentary
+nmap <C-/> <Plug>CommentaryLine
 nmap gcu <Plug>Commentary<Plug>Commentary
 
 " wrapping text with
