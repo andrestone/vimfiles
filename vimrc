@@ -386,9 +386,9 @@ augroup END
 set noerrorbells
 
 " backup swap undo
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=~/.vim-dirs/backup//
+set directory=~/.vim-dirs/swap//
+set undodir=~/.vim-dirs/undo//
 
 " no wrap / colorcolumn
 set nowrap
