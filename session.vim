@@ -293,14 +293,14 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled
+cd ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-edit ~/dev/repos/stonekit/dishes/@accounts/iac/lib/iac-stack.ts
+edit ~/dev/repos/stonekit-clone/dishes/@accounts/iac/lib/iac-stack.ts
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -335,7 +335,7 @@ exe 'vert 6resize ' . ((&columns * 20 + 127) / 254)
 exe 'vert 7resize ' . ((&columns * 126 + 127) / 254)
 argglobal
 enew
-file ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/NERD_tree_3
+file ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/NERD_tree_3
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -731,7 +731,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md | endif
+if bufexists("~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/README.md") | buffer ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/README.md | else | edit ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/README.md | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -917,7 +917,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md | endif
+if bufexists("~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md") | buffer ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md | else | edit ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -1103,7 +1103,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql | endif
+if bufexists("~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/draft.graphql") | buffer ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/draft.graphql | else | edit ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/draft.graphql | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -1285,7 +1285,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql | endif
+if bufexists("~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/schema.graphql") | buffer ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/schema.graphql | else | edit ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/schema.graphql | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -1467,7 +1467,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/singled.ts") | buffer ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/singled.ts | else | edit ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/singled.ts | endif
+if bufexists("~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/singled.ts") | buffer ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/singled.ts | else | edit ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/singled.ts | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -1658,14 +1658,14 @@ exe 'vert 5resize ' . ((&columns * 21 + 127) / 254)
 exe 'vert 6resize ' . ((&columns * 20 + 127) / 254)
 exe 'vert 7resize ' . ((&columns * 126 + 127) / 254)
 tabnext 1
-badd +161 ~/dev/repos/stonekit/dishes/@accounts/iac/lib/iac-stack.ts
-badd +22 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/README.md
-badd +118 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md
-badd +5 ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/draft.graphql
-badd +30 ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.graphql
-badd +472 ~/dev/repos/stonekit/dishes/@utils/backend/lib/singled/singled.ts
+badd +161 ~/dev/repos/stonekit-clone/dishes/@accounts/iac/lib/iac-stack.ts
+badd +22 ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/README.md
+badd +118 ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/USER_INSTRUCTIONS.md
+badd +5 ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/draft.graphql
+badd +30 ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/schema.graphql
+badd +472 ~/dev/repos/stonekit-clone/dishes/@utils/backend/lib/singled/singled.ts
 badd +195 ~/.vim/vimrc
-badd +6 ~/dev/repos/stonekit/dishes/@utils/backend/test/mocks/schema.ts
+badd +6 ~/dev/repos/stonekit-clone/dishes/@utils/backend/test/mocks/schema.ts
 badd +1 ~/Desktop/stack.yaml.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf

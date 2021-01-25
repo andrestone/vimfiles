@@ -67,3 +67,6 @@
 [submodule "pack/andrestone/start/gruvbox"]
 	path = pack/andrestone/start/gruvbox
 	url = https://github.com/gruvbox-community/gruvbox
+[submodule "pack/andrestone/start/coc.nvim"]
+	path = pack/andrestone/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
