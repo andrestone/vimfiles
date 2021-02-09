@@ -179,19 +179,31 @@ let NERDTreeShowHidden=1
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " insert blank lines with <enter>
-function! FixWindowsSize()
+function! WindowLeft()
     if (&buftype != "nofile")
-      execute "normal! :vertical resize 126\<CR>:set wfw\<CR>\<C-w>=0"
+      execute "normal! :set wfw!\<CR>"
+      execute "normal! \<C-w>h"
+      if (&buftype != "nofile")
+        execute "normal! :vertical resize 126\<CR>:set wfw\<CR>\<C-w>=0"
+      endif
     else
-      execute "normal! :vertical resize 31\<CR>:set wfw\<CR>\<C-w>=0"
+      execute "normal! :set wfw\<CR>"
     endif
 endfunction
 
-function! UnsetFixWidth()
+function! WindowRight()
     if (&buftype != "nofile")
       execute "normal! :set wfw!\<CR>"
+      execute "normal! \<C-w>l"
+      if (&buftype != "nofile")
+        execute "normal! :vertical resize 126\<CR>:set wfw\<CR>\<C-w>=0"
+      endif
     else
       execute "normal! :set wfw\<CR>"
+      execute "normal! \<C-w>l"
+      if (&buftype != "nofile")
+        execute "normal! :NERDTreeToggle\<CR>"
+      endif
     endif
 endfunction
 
@@ -201,8 +213,8 @@ tnoremap <silent><C-j> <C-w>N:resize 16<CR>a
 tnoremap <silent><C-k> <C-w>N:resize 3<CR>a<C-w>k
 tnoremap <silent><C-h> <C-w>N:resize 3<CR>a<C-w>k<C-w>h
 tnoremap <silent><C-l> <C-w>N:resize 3<CR>a<C-w>k<C-w>l
-nnoremap <C-h> :set wfw<CR>:call UnsetFixWidth()<CR><C-W>h:call FixWindowsSize()<CR>
-nnoremap <C-l> :set wfw<CR>:call UnsetFixWidth()<CR><C-W>l:call FixWindowsSize()<CR>
+nnoremap <C-h> :call WindowLeft()<CR>
+nnoremap <C-l> :call WindowRight()<CR>
 nnoremap <silent><C-j> <C-W>j
 nnoremap <silent><leader><C-j> :Tw<CR>
 nnoremap <silent><C-k> <C-W>k
@@ -430,7 +442,7 @@ set autochdir
 nnoremap <leader>cd :cd %:h<CR>:pwd<CR>
 
 " vtl Template strings
-au BufNewFile,BufRead *.ts,*.js call SyntaxRange#Include('vtl`', '`', 'velocity', 'String')
+" au BufNewFile,BufRead *.ts,*.js call SyntaxRange#Include('vtl`', '`', 'velocity', 'String')
 
 " markdown syntax highlighting
 au BufNewFile,BufRead *.md set filetype=markdown
