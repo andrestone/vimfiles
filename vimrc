@@ -142,9 +142,14 @@ endif
 
 " My stuff
 " Cursor shape
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 " Relative number
 set number relativenumber nuw=1
 
@@ -174,6 +179,7 @@ nmap <S-C-v> "*p
 map <silent><C-n> :NERDTreeToggle<CR>
 map <silent><leader><C-n> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
 
 " UndoTREE
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -219,8 +225,8 @@ nnoremap <silent><C-j> <C-W>j
 nnoremap <silent><leader><C-j> :Tw<CR>
 nnoremap <silent><C-k> <C-W>k
 nnoremap <leader><C-l> <C-w>x
-nnoremap ≥ <C-W>>
-nnoremap ≤ <C-W><lt>
+nnoremap <Esc>. <C-W>>
+nnoremap <Esc>, <C-W><lt>
 nnoremap – <C-W>-
 nnoremap ≠ <C-w>+
 
@@ -303,9 +309,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <c-@> coc#refresh()
 else
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <c-@> coc#refresh()
 endif
 map <F7> <Plug>(coc-references)
 map <F2> <Plug>(coc-diagnostic-next)
@@ -313,7 +319,7 @@ map <S-C-b> <Plug>(coc-type-definition)
 inoremap <F7> <Plug>(coc-references)
 map <C-b> <Plug>(coc-definition)
 nnoremap <leader>h :call <SID>show_documentation()<CR>
-nnoremap <leader>l :call CocAction('format')<CR>
+nnoremap <leader>l :call CocAction('format')<CR>:CocCommand eslint.executeAutofix<CR>
 nmap <leader>ca <Plug>(coc-codeaction)
 nmap <leader>cf  <Plug>(coc-fix-current)
 nmap <leader>gb :BlamerToggle<CR>
@@ -336,10 +342,10 @@ let g:gitgutter_enabled = 0
 
 " commenting
 inoremap /**<CR> /**<CR> *<CR>*/<Esc>kA 
-xmap <C-/> <Plug>Commentary
-nmap <C-/> <Plug>Commentary
-omap <C-/> <Plug>Commentary
-nmap <C-/> <Plug>CommentaryLine
+xmap <C-_> <Plug>Commentary
+nmap <C-_> <Plug>Commentary
+omap <C-_> <Plug>Commentary
+nmap <C-_> <Plug>CommentaryLine
 nmap gcu <Plug>Commentary<Plug>Commentary
 
 " wrapping text with
