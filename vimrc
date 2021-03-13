@@ -286,43 +286,60 @@ hi ColorColumn guibg=#212121
 " hi! link Repeat GruvboxOrange
 
 
+" nvim-lsp
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+nnoremap <C-b> :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader><C-b>vi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>hd :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <F7> :lua vim.lsp.buf.references()<CR>
+nnoremap <leader><C-r> :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>h :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>ca :lua vim.lsp.buf.code_action()<CR>
+" nnoremap <F2> :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap <F2> :lua vim.lsp.diagnostic.goto_next()<CR>
+" nnoremap <leader>vll :lua vim.lsp.diagnostic.set_loclist()<CR>
+
 " Coc stuff
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-if has('nvim')
-  inoremap <silent><expr> <c-@> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-map <F7> <Plug>(coc-references)
-map <F2> <Plug>(coc-diagnostic-next)
-map <S-C-b> <Plug>(coc-type-definition)
-inoremap <F7> <Plug>(coc-references)
-map <C-b> <Plug>(coc-definition)
-nnoremap <leader>h :call <SID>show_documentation()<CR>
 nnoremap <leader>l :call CocAction('format')<CR>:CocCommand eslint.executeAutofix<CR>
-nmap <leader>ca <Plug>(coc-codeaction)
 nmap <leader>cf  <Plug>(coc-fix-current)
 nmap <leader>gb :BlamerToggle<CR>
+" nmap <leader>ca <Plug>(coc-codeaction)
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+" let g:coc_snippet_next = '<tab>'
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" if has('nvim')
+"   inoremap <silent><expr> <c-@> coc#refresh()
+" else
+"   inoremap <silent><expr> <c-@> coc#refresh()
+" endif
+" map <F7> <Plug>(coc-references)
+" map <F2> <Plug>(coc-diagnostic-next)
+" map <S-C-b> <Plug>(coc-type-definition)
+" inoremap <F7> <Plug>(coc-references)
+" map <C-b> <Plug>(coc-definition)
+" nnoremap <leader>h :call <SID>show_documentation()<CR>
+
+
 
 " git blamer
 let g:blamer_template = '<author>, <committer-time> • <summary>'
