@@ -43,7 +43,7 @@ let NERDTreeQuitOnOpen=1
 " UndoTREE
 nnoremap <leader>u :UndotreeToggle<CR>
 
-" insert blank lines with <enter>
+" Window navigation functions
 function! WindowLeft()
     if (&buftype != "nofile")
       execute "normal! :set wfw!\<CR>"
@@ -55,7 +55,6 @@ function! WindowLeft()
       execute "normal! :set wfw\<CR>"
     endif
 endfunction
-
 function! WindowRight()
     if (&buftype != "nofile")
       execute "normal! :set wfw!\<CR>"
@@ -73,7 +72,6 @@ function! WindowRight()
 endfunction
 
 " Window Navigation
-" nnoremap <C-h> <C-W>h <C-W>=:vertical resize 126<CR>
 tnoremap <silent><C-j> <C-w>N:resize 16<CR>a
 tnoremap <silent><C-k> <C-w>N:resize 3<CR>a<C-w>k
 tnoremap <silent><C-h> <C-w>N:resize 3<CR>a<C-w>k<C-w>h
@@ -145,71 +143,65 @@ hi ColorColumn guibg=#212121
 " hi! link Repeat GruvboxOrange
 
 
-" nvim-lsp
-" set completeopt=menuone,noinsert,noselect
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
-" nnoremap <C-b> :lua vim.lsp.buf.definition()<CR>
-" nnoremap <leader><C-b>vi :lua vim.lsp.buf.implementation()<CR>
-" nnoremap <leader>hd :lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <F7> :lua vim.lsp.buf.references()<CR>
-" nnoremap <leader><C-r> :lua vim.lsp.buf.rename()<CR>
-" nnoremap <leader>h :lua vim.lsp.buf.hover()<CR>
-" nnoremap <leader>ca :lua vim.lsp.buf.code_action()<CR>
-" " nnoremap <F2> :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
-" nnoremap <F2> :lua vim.lsp.diagnostic.goto_next()<CR>
-" " nnoremap <leader>vll :lua vim.lsp.diagnostic.set_loclist()<CR>
-
 " Coc stuff
-nnoremap <leader>l :call CocAction('format')<CR>:CocCommand eslint.executeAutofix<CR>
-nmap <leader>cf  <Plug>(coc-fix-current)
-nmap <leader>gb :BlamerToggle<CR>
-nmap <leader>ca <Plug>(coc-codeaction)
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" Tab to select completion option
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" let g:coc_snippet_next = '<tab>'
 
-let g:coc_snippet_next = '<tab>'
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-if has('nvim')
-  inoremap <silent><expr> <c-@> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-map <F7> <Plug>(coc-references)
-map <F2> <Plug>(coc-diagnostic-next)
-map <S-C-b> <Plug>(coc-type-definition)
-inoremap <F7> <Plug>(coc-references)
-map <C-b> <Plug>(coc-definition)
-nnoremap <leader>h :call <SID>show_documentation()<CR>
+" " Shift tab to go previous selection
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" " Formatting
+" nnoremap <leader>l :call CocAction('format')<CR>:CocCommand eslint.executeAutofix<CR>
 
+" " Apply fix
+" nmap <leader>cf  <Plug>(coc-fix-current)
 
-" git blamer
+" " Show available code actions
+" nmap <leader>ca <Plug>(coc-codeaction)
+
+" " Trigger completion
+" if has('nvim')
+"   inoremap <silent><expr> <c-@> coc#refresh()
+" else
+"   inoremap <silent><expr> <c-space> coc#refresh()
+" endif
+
+" " References
+" map <F7> <Plug>(coc-references)
+
+" " Next diagnostic
+" map <F2> <Plug>(coc-diagnostic-next)
+
+" " Go to type definition
+" map <S-C-b> <Plug>(coc-type-definition)
+
+" " Go to definition
+" map <C-b> <Plug>(coc-definition)
+
+" " Show documentation (hover) or help
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+" nnoremap <leader>h :call <SID>show_documentation()<CR>
+
+" Git blamer
 let g:blamer_template = '<author>, <committer-time> • <summary>'
+nmap <leader>gb :BlamerToggle<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " git gutter
 let g:gitgutter_map_keys = 0
@@ -241,41 +233,6 @@ vnoremap <leader>/* di/*<CR>*/<ESC>kp
 " fzf
 nnoremap <C-f> :Ag<CR>
 
-" vimspector
-nmap <leader><F8>   <Plug>VimspectorAddFunctionBreakpoint
-nmap <leader><F9>   <Plug>VimspectorToggleBreakpoint
-nmap <leader><F10>   <Plug>VimspectorToggleConditionalBreakpoint
-nmap <F4>          <Plug>VimspectorStop
-nmap <F5>          <Plug>VimspectorContinue
-nmap <F6>          <Plug>VimspectorPause
-nmap <F8>          <Plug>VimspectorStepOver
-nmap <F9>          <Plug>VimspectorStepInto
-nmap <F12>         <Plug>VimspectorStepOut
-nmap <leader><F5>  <Plug>VimspectorRestart
-nmap <F10>         :call vimspector#Reset()<CR>
-
-" custom winbar
-func! CustomiseUI()
-  call win_gotoid( g:vimspector_session_windows.code )
-  " Clear the existing WinBar created by Vimspector
-  nunmenu WinBar
-  " Cretae our own WinBar
-  nnoremenu WinBar.■\ F4 :call vimspector#Stop()<CR>
-  nnoremenu WinBar.▶\ F5 :call vimspector#Continue()<CR>
-  nnoremenu WinBar.▷\ F6 :call vimspector#Pause()<CR>
-  nnoremenu WinBar.↷\ F8 :call vimspector#StepOver()<CR>
-  nnoremenu WinBar.↓\ F9 :call vimspector#StepInto()<CR>
-  nnoremenu WinBar.↑\ F12 :call vimspector#StepOut()<CR>
-  nnoremenu WinBar.⟲:\ lF5 :call vimspector#Restart()<CR>
-  nnoremenu WinBar.✕\ F10 :call vimspector#Reset()<CR>
-endfunction
-
-augroup MyVimspectorUICustomistaion
-  autocmd!
-  autocmd User VimspectorUICreated call CustomiseUI()
-augroup END
-
-
 " no errorbells
 set noerrorbells
 
@@ -289,9 +246,6 @@ set nowrap
 set colorcolumn=120
 nnoremap <leader>in :IndentGuidesToggle<CR>
 
-" Close quickfix after selecting item
-" autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
-
 " fixing tab
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
@@ -300,9 +254,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " hide buffers instead of closing them
 set hidden
-
-" vim-inspector
-packadd! vimspector
 
 " Debugging syntax highlighting
 nnoremap <leader>f1 :echo synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
@@ -323,9 +274,6 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 set autochdir
 nnoremap <leader>cd :cd %:h<CR>:pwd<CR>
 
-" vtl Template strings
-" au BufNewFile,BufRead *.ts,*.js call SyntaxRange#Include('vtl`', '`', 'velocity', 'String')
-
 " markdown syntax highlighting
 au BufNewFile,BufRead *.md set filetype=markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'gql=graphql', 'js=javascript', 'javascript']
@@ -342,8 +290,8 @@ else
   command! -bar Twsize Twindow|:res 16
   command! -bar Twindow :sp +set\ winfixheight
 endif
+
 " Load helps
 packloadall
 silent! helptags ALL
 filetype plugin indent on
-
