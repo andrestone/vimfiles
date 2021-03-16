@@ -9,6 +9,9 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" Set nohlsearch
+set nohlsearch
+
 " Relative number
 set number relativenumber nuw=1
 
@@ -146,49 +149,49 @@ hi ColorColumn guibg=#212121
 " Coc stuff
 
 " Tab to select completion option
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? coc#_select_confirm() :
-"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" let g:coc_snippet_next = '<tab>'
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+let g:coc_snippet_next = '<tab>'
 
-" " Shift tab to go previous selection
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Shift tab to go previous selection
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" " Formatting
-" nnoremap <leader>l :call CocAction('format')<CR>:CocCommand eslint.executeAutofix<CR>
+" Formatting
+nnoremap <leader>l :call CocAction('format')<CR>:CocCommand eslint.executeAutofix<CR>
 
-" " Apply fix
-" nmap <leader>cf  <Plug>(coc-fix-current)
+" Apply fix
+nmap <leader>cf  <Plug>(coc-fix-current)
 
-" " Show available code actions
-" nmap <leader>ca <Plug>(coc-codeaction)
+" Show available code actions
+nmap <leader>ca <Plug>(coc-codeaction)
 
-" " Trigger completion
+" Trigger completion
 " if has('nvim')
 "   inoremap <silent><expr> <c-@> coc#refresh()
 " else
 "   inoremap <silent><expr> <c-space> coc#refresh()
 " endif
 
-" " References
+" References
 " map <F7> <Plug>(coc-references)
 
-" " Next diagnostic
+" Next diagnostic
 " map <F2> <Plug>(coc-diagnostic-next)
 
-" " Go to type definition
+" Go to type definition
 " map <S-C-b> <Plug>(coc-type-definition)
 
-" " Go to definition
+" Go to definition
 " map <C-b> <Plug>(coc-definition)
 
-" " Show documentation (hover) or help
+" Show documentation (hover) or help
 " function! s:show_documentation()
 "   if (index(['vim','help'], &filetype) >= 0)
 "     execute 'h '.expand('<cword>')
@@ -250,7 +253,7 @@ nnoremap <leader>in :IndentGuidesToggle<CR>
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " Disable auto-commenting new lines
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType,BufNew,BufRead * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " hide buffers instead of closing them
 set hidden
@@ -277,19 +280,6 @@ nnoremap <leader>cd :cd %:h<CR>:pwd<CR>
 " markdown syntax highlighting
 au BufNewFile,BufRead *.md set filetype=markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ts=typescript', 'typescript', 'gql=graphql', 'js=javascript', 'javascript']
-
-" Execute in terminal window
-if has('nvim')
-  tnoremap <Esc><Esc> <C-\><C-n>
-  command! -nargs=+ Tx vsplit term://zsh <args>
-  command! Tw sp +set\ winfixheight term://zsh
-else
-  tnoremap <Esc><Esc> <C-w>N
-  command! -nargs=+ Tx :ter ++close <args>
-  command! Tw Twsize|:ter ++curwin
-  command! -bar Twsize Twindow|:res 16
-  command! -bar Twindow :sp +set\ winfixheight
-endif
 
 " Load helps
 packloadall

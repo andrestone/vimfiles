@@ -34,3 +34,21 @@
 [submodule "pack/andrestone/start/vim-jsx-pretty"]
 	path = pack/andrestone/start/vim-jsx-pretty
 	url = https://github.com/maxmellon/vim-jsx-pretty
+[submodule "pack/andrestone/start/coc.nvim"]
+	path = pack/andrestone/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "pack/andrestone/start/vim-colorschemes"]
+	path = pack/andrestone/start/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes
+[submodule "pack/andrestone/start/iceberg.vim"]
+	path = pack/andrestone/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim
+[submodule "pack/andrestone/start/auto-pairs"]
+	path = pack/andrestone/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule "pack/andrestone/start/vim-markdown"]
+	path = pack/andrestone/start/vim-markdown
+	url = https://github.com/tpope/vim-markdown
+[submodule "pack/andrestone/start/vim-snippets"]
+	path = pack/andrestone/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
