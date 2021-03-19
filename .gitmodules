@@ -31,9 +31,6 @@
 [submodule "pack/andrestone/start/vim-graphql"]
 	path = pack/andrestone/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
-[submodule "pack/andrestone/start/vim-jsx-pretty"]
-	path = pack/andrestone/start/vim-jsx-pretty
-	url = https://github.com/maxmellon/vim-jsx-pretty
 [submodule "pack/andrestone/start/coc.nvim"]
 	path = pack/andrestone/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
@@ -52,3 +49,12 @@
 [submodule "pack/andrestone/start/vim-snippets"]
 	path = pack/andrestone/start/vim-snippets
 	url = https://github.com/honza/vim-snippets
+[submodule "pack/andrestone/start/vim-fugitive"]
+	path = pack/andrestone/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/andrestone/start/vim-airline"]
+	path = pack/andrestone/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "pack/andrestone/start/typescript-vim"]
+	path = pack/andrestone/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
