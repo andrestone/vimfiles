@@ -55,6 +55,3 @@
 [submodule "pack/andrestone/start/vim-airline"]
 	path = pack/andrestone/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule "pack/andrestone/start/typescript-vim"]
-	path = pack/andrestone/start/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim
