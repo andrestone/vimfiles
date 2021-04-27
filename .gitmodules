@@ -55,3 +55,18 @@
 [submodule "pack/andrestone/start/vim-airline"]
 	path = pack/andrestone/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "pack/andrestone/start/vim-jsx-pretty"]
+	path = pack/andrestone/start/vim-jsx-pretty
+	url = https://github.com/maxmellon/vim-jsx-pretty
+[submodule "pack/andrestone/start/completion-nvim"]
+	path = pack/andrestone/start/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim
+[submodule "pack/andrestone/start/nlua.nvim"]
+	path = pack/andrestone/start/nlua.nvim
+	url = https://github.com/tjdevries/nlua.nvim
+[submodule "pack/andrestone/start/BetterLua.vim"]
+	path = pack/andrestone/start/BetterLua.vim
+	url = https://github.com/euclidianAce/BetterLua.vim
+[submodule "pack/andrestone/start/plenary.nvim"]
+	path = pack/andrestone/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
