@@ -1,8 +1,0 @@
-{
-  "prettier.eslintIntegration": true,
-  "prettier.singleQuote": false,
-  "prettier.proseWrap": "always",
-  "coc.source.omni.filetypes": ["VimspectorPrompt"],
-  "clangd.path": "/$HOME/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
-  "python.formatting.autopep8Path": "autopep8"
-}
